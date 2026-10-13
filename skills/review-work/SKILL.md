@@ -5,7 +5,7 @@ description: Prepare a read-only summary of authorized in-flight work, sessions,
 
 # Review in-flight work
 
-Use the [shared working agreements](../../policy/working-agreements.md) and current task scope. This is a read-only review. Do not create or change schedules, post comments, send messages, merge, approve, close issues, or change repository state unless the user separately authorizes that action.
+Use the shared account and project instructions supplied in the current task context. This is a read-only review. Do not create or change schedules, post comments, send messages, merge, approve, close issues, or change repository state unless the user separately authorizes that action.
 
 ## Review
 

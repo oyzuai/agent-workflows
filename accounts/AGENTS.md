@@ -2,7 +2,7 @@
 
 This file is a portable account-level template. After installing the shared checkout, replace `<workflow-checkout>` with its local directory before copying this file to the configured Codex home as `AGENTS.md`.
 
-At the start of substantive work, read and follow:
+At the start of every task, read and follow:
 
 - `<workflow-checkout>/policy/working-agreements.md`
 - `<workflow-checkout>/accounts/maintainer-profile.md`

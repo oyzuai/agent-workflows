@@ -13,3 +13,5 @@ See the official [AGENTS.md guidance](https://learn.chatgpt.com/docs/agent-confi
 ## Delegation
 
 Use the collaboration tools available in the current Codex surface only when the user/task authorizes delegation. Keep the parent task as the owner of scope, prioritization, decisions, integration, and evidence review. Assign one worker to each bounded operation, and wait for that same operation to complete instead of launching duplicate commands. Do not use `codex exec` or create new user-facing tasks unless explicitly allowed. Treat missing tools or inaccessible sessions as limits, not permission to fabricate results or change providers silently.
+
+Never run repository environment setup scripts. Follow the repository's own toolchain instructions for commands; do not install toolchains or fall back to host tools when the repository requires a managed runtime.

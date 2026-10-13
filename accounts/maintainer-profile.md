@@ -2,6 +2,8 @@
 
 These are static personal preferences, not a current usage report or a claim about today's model availability. Check the live provider catalog and usage tools when the task requires them. Preserve these gates; unavailable readings remain unknown.
 
+Do not change the serving model or effort of the current conversation. Never use Ultrafast or another paid speed tier. Escalate one step only after a concrete failure and explain the reason briefly. Never purchase credits or redeem resets without explicit authorization.
+
 ## Budget gates
 
 - Below 50% used on the provider being spent: normal work is allowed.
@@ -14,7 +16,7 @@ These are static personal preferences, not a current usage report or a claim abo
 
 ## Model and effort preferences
 
-Choose the least expensive available model likely to complete the task and follow-up, and the lowest effort that fits it. Medium is the default; low suits read-only and routine checks. High is reserved for hard debugging when the brief calls for it. Never choose xhigh, max, or ultra unless explicitly requested. Do not claim to change the serving model or effort of an existing conversation without a supported control; if the configured choice is a poor fit, state that briefly.
+Choose the least expensive available model likely to complete the task and follow-up, and the lowest effort that fits it. Medium is the default; low suits read-only and routine checks. High is reserved for hard debugging and only when the task brief calls for it. Never choose xhigh, max, or ultra unless explicitly requested. If the configured choice is a poor fit, say so briefly; do not change the serving model or effort yourself. End the response with a concise line naming the models, effort, and whether subagents were used.
 
 For Codex, prefer the current catalog's economical option for easy work, its workhorse for normal implementation, and its strongest option only for hard problems. The current preference map is Luna for easy work, Sol for ordinary implementation, and Astra for difficult design or debugging; confirm the exact live identifiers and supported effort before selecting one.
 

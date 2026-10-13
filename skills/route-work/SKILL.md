@@ -5,7 +5,7 @@ description: Choose a provider, model, and effort for an authorized task using c
 
 # Route work between providers
 
-Apply the shared [working agreements](../../policy/working-agreements.md) and [maintainer profile](../../accounts/maintainer-profile.md). Route only work the user authorized; a model-routing decision does not authorize delegation, a new session, external action, account change, purchase, or reset redemption.
+Apply the shared account and project instructions supplied in the current task context. Route only work the user authorized; a model-routing decision does not authorize delegation, a new session, external action, account change, purchase, or reset redemption.
 
 ## Check headroom and capability
 
