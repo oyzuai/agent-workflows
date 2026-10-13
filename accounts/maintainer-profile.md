@@ -2,6 +2,8 @@
 
 These are static personal preferences, not a current usage report or a claim about today's model availability. Check the live provider catalog and usage tools when the task requires them. Preserve these gates; unavailable readings remain unknown.
 
+For a budgeted brief, record both Claude and Codex weekly usage/headroom or unavailable status, the time read, and the resulting gate. Treat a missing or older-than-two-hours snapshot as the 50% gate. Keep usage evidence separate from model availability.
+
 Do not change the serving model or effort of the current conversation. Never use Ultrafast or another paid speed tier. Escalate one step only after a concrete failure and explain the reason briefly. Never purchase credits or redeem resets without explicit authorization.
 
 ## Budget gates

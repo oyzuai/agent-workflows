@@ -15,3 +15,5 @@ See Anthropic's official [memory and instruction guide](https://code.claude.com/
 ## Delegation and session access
 
 Set model and effort on Claude agent calls when the surface supports them, using the current catalog and maintainer preferences. Do not assume a `codex-session` launcher, Codex collaboration API, session transcripts, or cross-provider messaging is available in Claude. Use only an actually connected, authorized inspection or handoff tool; otherwise report that the session is unavailable. Do not post messages, merge, approve, or activate schedules unless explicitly authorized.
+
+Keep Claude worker status reports to 20 lines or fewer. When context becomes large, tell the user and suggest `/compact` or a fresh session; do not autonomously launch a new session.
