@@ -12,6 +12,29 @@ Before delegating, confirm that the task needs more than one or two direct opera
 
 Read each file once and only the needed range. Send long output through a bounded view such as a search or tail, do not poll, and avoid unrequested extras. Summarize results concisely and give users a brief with the minimum evidence and next action when handing work off. End the response with the model mix when the account profile requires it.
 
+## Durable design material
+
+When the user agrees on a design, preserve every mockup, interactive prototype,
+diagram, and other supporting artifact that forms part of that design in the
+owning proposal's repository and directory. Link the files from the proposal
+README, explain how to open or run interactive material, and retain editable
+source and required local assets. A chat attachment, temporary output folder,
+local absolute path, or summary alone does not satisfy this requirement.
+
+Identify the agreed baseline, its source and decision date, and which behavior
+is illustrative, proposed, accepted, or implemented. Preserve earlier material
+needed to understand decisions and mark superseded alternatives explicitly;
+do not turn visual approval into acceptance of every depicted command or claim
+that a mockup proves implementation. Keep design files and their owning text in
+agreement as the design changes.
+
+Before calling a design handoff complete, verify that a contributor can find,
+open, and inspect the relevant states and interactions from the proposal without
+the originating chat or machine. If an original cannot be recovered, record
+what is missing and the recovery blocker; never silently recreate it and label
+the replacement as the original. Apply the owning repository's confidentiality,
+licensing, documentation, and delivery rules when preserving material.
+
 ## Changes and external effects
 
 Keep work bounded, reviewable, and grounded in the repository's current instructions. Preserve unrelated changes. Run the checks the owning repository requires; report exact commands and results, and keep failures and unperformed checks visible. Do not invent a success, weaken a check, or treat one task's exception as a general policy.
