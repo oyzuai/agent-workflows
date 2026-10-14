@@ -5,7 +5,7 @@ This public repository is the canonical source for reusable Codex and Claude acc
 ## Start here
 
 - [`AGENTS.md`](AGENTS.md) and [`CLAUDE.md`](CLAUDE.md): repository contributor instructions for the two provider surfaces.
-- [`policy/working-agreements.md`](policy/working-agreements.md): shared scope, safety, and ownership rules.
+- [`policy/working-agreements.md`](policy/working-agreements.md): shared scope, safety, ownership, and [durable design material](policy/working-agreements.md#durable-design-material) rules.
 - [`accounts/`](accounts/): thin provider-specific account instruction files and the maintainer profile.
 - [`skills/`](skills/): portable workflows, each packaged as a `SKILL.md` with any focused references beside it.
 - [`adoption/`](adoption/): installation guidance and reusable project instruction templates.
