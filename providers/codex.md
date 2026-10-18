@@ -17,3 +17,7 @@ Codex can coordinate or perform any task role under "Splitting work between prov
 Use the collaboration tools available in the current Codex surface only when the user/task authorizes delegation. Keep the parent task as the owner of scope, prioritization, decisions, integration, and evidence review. Assign one worker to each bounded operation, and wait for that same operation to complete instead of launching duplicate commands. Do not use `codex exec` or create new user-facing tasks unless explicitly allowed. Treat missing tools or inaccessible sessions as limits, not permission to fabricate results or change providers silently.
 
 Never run repository Codex environment setup scripts. Follow the repository's own toolchain instructions for commands; do not install toolchains or fall back to host tools when the repository requires a managed runtime.
+
+## When started by another session
+
+A coordinator may start a Codex thread through an app-server launcher. In that case work in the assigned worktree and edit the working tree. The sandbox may not let a thread create branches or commit in the main repository's git directory; if the brief asks for that and it is denied, say so, leave the changes in the working tree and report it rather than working around the sandbox. Do not push, open pull requests, merge or approve unless the brief says so. If the worktree directory or git metadata is unwritable, stop and report the exact path and error at once; do not implement elsewhere.

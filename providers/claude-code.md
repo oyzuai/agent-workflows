@@ -21,3 +21,14 @@ To hand a whole task to Codex, use an actually available, authorized tool. The `
 When coordinating a returned task, inspect its diff and verification evidence, run any outstanding required checks, obtain the required separate reviewer pass, and keep the draft PR current. Do not duplicate checks without a failure, changed inputs, or an applicable repository requirement.
 
 Keep Claude worker status reports to 20 lines or fewer. When context becomes large, tell the user and suggest `/compact` or a fresh session; do not autonomously launch a new Claude session for a context handoff. Starting Codex threads for split work is separate and is authorized by the maintainer profile.
+
+## Starting a Codex thread
+
+Use an installed, authorized launcher (for example the `codex-session` skill) that drives `codex app-server` so the thread is a named app thread, not a `codex exec` run. Before launching, read both providers' usage and record the readings in the brief. Then:
+
+- **Worktree root.** Give the thread its own detached worktree, created from the intended base ref (a pushed branch tip, or `origin/main`). Use a real path, not a junction or symlink alias such as a home-directory `.codex` folder that resolves to another drive: the Codex sandbox and git must see the same path, or git metadata and the directory become unwritable. After creating it, check from the thread's view of the path that the directory is writable and `git status` works.
+- **Git is read-mostly for the worker.** A `workspace-write` Codex sandbox cannot create branches or commit in the main repository's git directory. Tell the worker to edit the working tree only; the coordinator creates the branch, commits and pushes. Do not tell it to create a branch.
+- **Make it findable.** Some launchers open `codex://threads/<id>` only when the turn ends. Open the link yourself as soon as the thread id is logged, and tell the user the thread name and where it appears.
+- **Background and stop.** Run the launcher in the background; a finished wrapper command does not mean the turn finished. To stop a thread, end only the launcher and its private `app-server`, never the Codex desktop app process.
+- **Brief, model and effort.** Name provider, role, model selector and effort from the profile's role table. A launcher or skill default that differs from the profile (for example a lower effort or different reviewer tier) does not apply. Repository rules in a skill's brief template belong to the repository the skill was written for; use the current repository's own.
+- **User override.** If the user tells you not to use Codex, stop launched threads and do the work in Claude, as the working agreements require.
