@@ -16,29 +16,28 @@ This profile is standing authorization for substantial work to start Codex threa
 - **Readings:** for a budgeted brief, record both providers' usage or unavailable status and the time read. A missing or stale reading is unknown, not evidence that either side is hot; keep splitting evenly and recheck after a limit error.
 - Never buy credits or redeem a reset without explicit user authorization. Never use Ultrafast or another paid speed tier.
 
-## Claude models by role
+## Models by role
 
-Name the model and effort in every Claude brief. Do not change the serving model or effort of the current conversation.
+Any task can run on either provider. The role decides the model and effort on whichever provider takes the task, and the provider is chosen by the split rules above. Name the model and effort in every brief, Claude or Codex. Do not change the serving model or effort of the current conversation.
 
-| Role | Model | Effort |
+| Role | Claude | Codex |
 | --- | --- | --- |
-| Coordination: briefing, sequencing, relaying, checking merge state | Sonnet 5.5 | high |
-| Design-heavy implementation: new subsystems; security boundaries such as signing, trust, stores and locks; resolver logic; contract changes | Opus 5.5 | high |
-| Clear-brief implementation: design settled, done is concrete | Sonnet 5.5 | high |
-| Light work: mechanical edits, renames, doc link fixes, base merges, CI re-runs, gathering logs or PR state | Haiku 5.5 | low |
-| First diff review of every implementation PR | Opus 5.5 | high |
-| Later review rounds on PRs touching security, locks, resolvers or contracts | Opus 5.5 | high |
-| Later review rounds on small, non-security fixes | Sonnet 5.5 | medium |
-| Investigations: CI root-causing, reproductions, perf measurements | Sonnet 5.5, then Opus 5.5 if it stalls | high |
+| Coordination: briefing, sequencing, relaying, checking merge state | Sonnet 5.5, high | Sol, high (Claude orchestrates; Codex coordinates only in a conversation the user drives directly) |
+| Design-heavy implementation: new subsystems; security boundaries such as signing, trust, stores and locks; resolver logic; contract changes | Opus 5.5, high | Astra, high |
+| Clear-brief implementation: design settled, done is concrete | Sonnet 5.5, high | Sol, high |
+| Light work: mechanical edits, renames, doc link fixes, base merges, CI re-runs, gathering logs or PR state | Haiku 5.5, low | Luna, low |
+| First diff review of every implementation PR | Opus 5.5, high | Astra, high |
+| Later review rounds on PRs touching security, locks, resolvers or contracts | Opus 5.5, high | Astra, high |
+| Later review rounds on small, non-security fixes | Sonnet 5.5, medium | Sol, medium |
+| Investigations: CI root-causing, reproductions, perf measurements | Sonnet 5.5, high; Opus 5.5 if it stalls | Sol, high; Astra if it stalls |
 
-- The coordinator hands design or security judgment calls to an Opus reviewer instead of deciding them alone.
-- Haiku never touches security or contracts.
-- Fable 5.1 is a last-resort escalation only after Opus has failed once on the same problem, or when explicitly requested.
+- Claude has the first diff review of every implementation PR, including Codex's; a Codex review of Claude's work is optional and never replaces it.
+- The coordinator hands design or security judgment calls to an Opus (or Astra) reviewer instead of deciding them alone.
+- Light-work models (Haiku, Luna) never touch security or contracts.
+- Claude's Fable 5.1 is a last-resort escalation only after Opus has failed once on the same problem, or when explicitly requested.
 - Never choose xhigh, max, or ultra unless explicitly requested.
-
-## Codex models
-
-Prefer the current catalog's economical option for easy work, its workhorse for normal implementation, and its strongest option for hard problems. The current preference map is Luna for easy work, Sol for ordinary implementation, and Astra for difficult design or debugging; confirm the exact live identifiers and supported effort before selecting one. Hard tasks go to Astra at high effort; otherwise default to medium. Codex is expected to carry its share of design-heavy work, not only routine tasks.
+- Codex rows are tier-for-tier matches: Luna is the economical option, Sol the workhorse, Astra the strongest. Confirm the live catalog's exact identifiers and supported effort before selecting one; if an effort is unsupported, use the nearest lower one and say so.
+- Codex carries its share of design-heavy work, not only routine tasks.
 
 These are preferences, not an availability or pricing guarantee: use the live catalog, preserve the configured model when details are unavailable, and do not claim measured monetary savings from qualitative tiers. If a configured choice is a poor fit, say so briefly. End the response with a concise line naming the models, effort, and whether subagents were used.
 
