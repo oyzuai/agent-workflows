@@ -10,7 +10,7 @@ This profile is standing authorization for either provider to delegate whole sub
 
 ## Split and headroom
 
-- **Share:** about half of substantial work by size to each provider. Code reviews do not count toward Codex's share. When unsure where a single task goes, give it to Codex.
+- **Share:** about half of substantial work by size to each provider. Code reviews do not count toward either provider's share. When unsure where a single task goes, give it to Codex.
 - **Tilt:** when one provider is running hot (its binding window is at 85% or more used, or it is well ahead of the other's), give new whole tasks to the other until the gap closes.
 - **Out of credits or at a limit:** run everything on the other provider until the user says the first is back. If both are out, stop new work, report what is in flight, and ask.
 - **Readings:** for a budgeted brief, record both providers' usage or unavailable status and the time read. A missing or stale reading is unknown, not evidence that either side is hot; keep splitting evenly and recheck after a limit error.
