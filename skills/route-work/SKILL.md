@@ -7,6 +7,10 @@ description: Choose a provider, model, and effort for an authorized task using c
 
 Apply the shared account and project instructions supplied in the current task context. Route only work the user authorized; a model-routing decision does not authorize delegation, a new session, external action, account change, purchase, or reset redemption.
 
+## Apply the account's split policy
+
+If the account context sets a split between providers, follow it before choosing the cheapest model. Assign each substantial task, such as a spec to implement, a multi-file feature, a refactor, a long investigation, or a prototype, whole and end to end to one provider; never carve a task into small pieces to give the other provider a slice. Alternate whole tasks so each provider carries its target share by size, keep a running tally, and do not count code reviews toward the share. When unsure, follow the account's tiebreak. Tilt away from a provider that is running hot, and when one is out of credits or at a limit, run everything on the other until the user says it is back. Use the account's role-to-model map when it has one, and name the model and effort in every brief.
+
 ## Check headroom and capability
 
 For substantial tasks, inspect current short- and long-window usage, reset times, and applicable per-model limits using supported account tools. Use the current Codex usage tool for Codex and an available Claude usage tool or a user-provided reading for Claude. Never read credentials to obtain usage. Mark unavailable or stale data as unknown; do not infer spare capacity from past usage. Recheck after a limit error or before a material allocation decision, not continuously.

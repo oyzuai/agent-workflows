@@ -12,6 +12,8 @@ See the official [AGENTS.md guidance](https://learn.chatgpt.com/docs/agent-confi
 
 ## Delegation
 
+Codex carries about half of substantial work as whole tasks briefed by the Claude coordinator (see "Splitting work between providers" in the working agreements). When briefed this way, own the task end to end in the assigned worktree: follow the repository rules in the brief, avoid the files the brief lists as being changed elsewhere, meet its definition of done, and report the diff summary, the exact checks run with results, and any blocker. Leave pushing and the pull request to the coordinator unless the brief says otherwise. If the brief is missing the repository rules, the in-flight file list, or a definition of done, say so before starting rather than guessing.
+
 Use the collaboration tools available in the current Codex surface only when the user/task authorizes delegation. Keep the parent task as the owner of scope, prioritization, decisions, integration, and evidence review. Assign one worker to each bounded operation, and wait for that same operation to complete instead of launching duplicate commands. Do not use `codex exec` or create new user-facing tasks unless explicitly allowed. Treat missing tools or inaccessible sessions as limits, not permission to fabricate results or change providers silently.
 
 Never run repository Codex environment setup scripts. Follow the repository's own toolchain instructions for commands; do not install toolchains or fall back to host tools when the repository requires a managed runtime.

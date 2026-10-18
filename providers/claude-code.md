@@ -14,6 +14,8 @@ See Anthropic's official [memory and instruction guide](https://code.claude.com/
 
 ## Delegation and session access
 
-Set model and effort on Claude agent calls when the surface supports them, using the current catalog and maintainer preferences. Do not assume a `codex-session` launcher, Codex collaboration API, session transcripts, or cross-provider messaging is available in Claude. Use only an actually connected, authorized inspection or handoff tool; otherwise report that the session is unavailable. Do not post messages, merge, approve, or activate schedules unless explicitly authorized.
+Claude is the orchestrator when work is split with Codex (see "Splitting work between providers" in the working agreements). Set model and effort on Claude agent calls, chosen by role from the maintainer profile, and name them in every brief. To hand a whole task to Codex, use the `codex-session` skill when it is installed: it starts a Codex thread that appears in the Codex app and reads Codex usage. Verify the launcher is actually available before relying on it; if it is not, or no other connected, authorized handoff tool exists, report that Codex is unreachable rather than silently doing the task on Claude. A thread you cannot reach is different from a provider that is out of credits: only the latter moves all work to Claude. Do not assume other session transcripts or cross-provider messaging are available. Do not post messages, merge, approve, or activate schedules unless explicitly authorized.
 
-Keep Claude worker status reports to 20 lines or fewer. When context becomes large, tell the user and suggest `/compact` or a fresh session; do not autonomously launch a new session.
+When Codex returns a task, read its diff and rerun the required checks yourself before reporting success, then push and keep the draft pull request current.
+
+Keep Claude worker status reports to 20 lines or fewer. When context becomes large, tell the user and suggest `/compact` or a fresh session; do not autonomously launch a new Claude session for a context handoff. Starting Codex threads for split work is separate and is authorized by the maintainer profile.
