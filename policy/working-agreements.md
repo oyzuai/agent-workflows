@@ -47,6 +47,15 @@ what is missing and the recovery blocker; never silently recreate it and label
 the replacement as the original. Apply the owning repository's confidentiality,
 licensing, documentation, and delivery rules when preserving material.
 
+## Cleaning up sessions, workers, and scratch
+
+Every session, subagent, worker thread, and background task leaves the machine as tidy as it found it. Clean up when the work is finished, merged, or abandoned, before reporting the task done, and make sure the same is done for everything you launched. This is standing authorization to remove what the task created and to archive or close the sessions you started; it authorizes nothing else.
+
+- **Your own footprint.** Stop the background processes, monitors, watchers, servers, and WSL or container jobs you started. Remove the temporary worktrees, scratch checkouts, archives, per-task copies, temporary files, and build output directories (such as a Cargo `target`) you created once their work is merged, abandoned, or handed off. Archive or close your own finished session where the tool allows it.
+- **Children.** A parent owns the cleanup of every worker, subagent, thread, and session it launches. Before finishing, confirm each child is finished or stop it, collect its result, then remove its worktree, scratch, build directories, and copies and archive or close its session. Brief each child to clean up its own footprint and to put large directories where there is room. A child that was stopped or abandoned is cleaned up the same way.
+- **Boundaries.** Remove only what this task created: record the paths when creating them. Never delete another session's, person's, or program's worktrees, branches, caches, stores, or installed tools, and never force a removal past a lock, uncommitted work, or unpublished commits; keep that work until it is pushed or handed off and report it instead. Low disk space is not a reason to delete anything you did not create: report the largest consumers and ask.
+- **Report.** When finishing, say in one line what was removed and what remains (path, size, owner, and why).
+
 ## Changes and external effects
 
 Keep work bounded, reviewable, and grounded in the repository's current instructions. Preserve unrelated changes. Run the checks the owning repository requires; report exact commands and results, and keep failures and unperformed checks visible. Do not invent a success, weaken a check, or treat one task's exception as a general policy.
