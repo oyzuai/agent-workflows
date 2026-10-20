@@ -20,7 +20,7 @@ Never run repository Codex environment setup scripts. Follow the repository's ow
 
 ## Cleaning up
 
-Apply "Cleaning up sessions, workers, and scratch" from the working agreements. Close the threads and workers you launched when their work is done, and remove the worktrees created for them (for example under the Codex worktree root) with `git worktree remove` from the owning repository once their branch is merged or abandoned, along with their build output. If a directory is held by a process or git reports it locked, report the path; do not stop unrelated processes or force the removal.
+Apply "Cleaning up sessions, workers, and temporary files" from the working agreements. Close or archive the threads and workers you launched where the surface allows it, and remove the worktrees created for them with `git worktree remove` from the owning repository, as the policy describes.
 
 ## When started by another session
 
