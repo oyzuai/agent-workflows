@@ -23,17 +23,18 @@ Any task and role can run on either provider, including coordination, implementa
 | Role | Claude | Codex |
 | --- | --- | --- |
 | Coordination: briefing, sequencing, relaying, checking merge state, verifying worker evidence, PR delivery | Sonnet (`sonnet`), high | GPT-6.1 Sol (`gpt-6.1-sol`), high |
-| Design-heavy implementation: new subsystems; security boundaries such as signing, trust, stores and locks; resolver logic; contract changes | Opus (`opus`), high | GPT-6 Astra (`gpt-6-astra`), high |
+| Design-heavy implementation: new subsystems; security boundaries such as signing, trust, stores and locks; resolver logic; contract changes | Opus (`opus`), high | GPT-6.1 Sol (`gpt-6.1-sol`), high |
 | Clear-brief implementation: design settled, done is concrete | Sonnet (`sonnet`), high | GPT-6.1 Sol (`gpt-6.1-sol`), high |
 | Light work: mechanical edits, renames, doc link fixes, base merges, CI re-runs, gathering logs or PR state | Haiku (`haiku`), low where supported | GPT-6 Luna (`gpt-6-luna`), low |
-| First diff review of every implementation PR | Opus (`opus`), high | GPT-6 Astra (`gpt-6-astra`), high |
-| Every review round on PRs touching security, locks, resolvers or contracts | Opus (`opus`), high | GPT-6 Astra (`gpt-6-astra`), high |
+| First diff review of every implementation PR | Opus (`opus`), high | GPT-6.1 Sol (`gpt-6.1-sol`), high |
+| Every review round on PRs touching security, locks, resolvers or contracts | Opus (`opus`), high | GPT-6.1 Sol (`gpt-6.1-sol`), high |
 | Later review rounds on small fixes outside security, locks, resolvers and contracts | Sonnet (`sonnet`), medium | GPT-6.1 Sol (`gpt-6.1-sol`), medium |
-| Investigations: CI root-causing, reproductions, perf measurements | Sonnet (`sonnet`), high; Opus (`opus`), high if stalled | GPT-6.1 Sol (`gpt-6.1-sol`), high; GPT-6 Astra (`gpt-6-astra`), high if stalled |
-| Design or security judgment referred by the coordinator | Opus (`opus`), high | GPT-6 Astra (`gpt-6-astra`), high |
+| Investigations: CI root-causing, reproductions, perf measurements | Sonnet (`sonnet`), high; Opus (`opus`), high if stalled | GPT-6.1 Sol (`gpt-6.1-sol`), high |
+| Design or security judgment referred by the coordinator | Opus (`opus`), high | GPT-6.1 Sol (`gpt-6.1-sol`), high |
 
-- Either provider can supply the first diff review. Use Opus or Astra at high effort in a separate reviewer pass; cross-provider review is optional. An AI review is not PR approval, and reviews do not count toward the substantial-work allocation.
-- The coordinator hands design or security judgment calls to an Opus or Astra reviewer on the selected platform instead of deciding them alone.
+- Either provider can supply the first diff review. Use Opus or GPT-6.1 Sol at high effort in a separate reviewer pass; cross-provider review is optional. An AI review is not PR approval, and reviews do not count toward the substantial-work allocation.
+- The coordinator hands design or security judgment calls to an Opus or GPT-6.1 Sol reviewer on the selected platform instead of deciding them alone.
+- These current assignments supersede older routing instructions in project memories, handoffs, and task briefs while preserving direct user choices.
 - Light-work models (Haiku, Luna) never touch security or contracts.
 - Claude's Fable 5.1 (`claude-fable-5-1`) remains a last-resort escalation only after Opus has failed once on the same problem, or when explicitly requested; verify availability and preserve the no-purchase rule.
 - Never choose xhigh, max, or ultra unless explicitly requested.
