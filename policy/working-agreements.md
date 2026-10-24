@@ -56,6 +56,10 @@ Every session, subagent, worker thread, and background task leaves the machine a
 - **Boundaries.** Remove only what this task created: record the paths when creating them. Never delete another session's, person's, or program's worktrees, branches, caches, stores, or installed tools, and never force a removal past a lock, uncommitted work, or unpublished commits; keep that work until it is pushed or its owner takes it over, and report it instead. Low disk space is not a reason to delete anything you did not create: report the largest consumers and ask.
 - **Report.** When finishing, say in one line what was removed and what remains (path, size, owner, and why).
 
+## Acceptance evidence and resource ownership
+
+Before substantial verification, name the user-visible claim, the smallest convincing end-to-end check, its expected result, and the evidence to retain. Give every temporary source copy, compiler output, captured environment and proof directory one owner and a disposal condition. A successful result is not permission to retain the entire working environment indefinitely. Coordinators own resource admission and release of returned workers' disposable output; preserve source, unpublished work and uniquely authored evidence.
+
 ## Changes and external effects
 
 Keep work bounded, reviewable, and grounded in the repository's current instructions. Preserve unrelated changes. Run the checks the owning repository requires; report exact commands and results, and keep failures and unperformed checks visible. Do not invent a success, weaken a check, or treat one task's exception as a general policy.
