@@ -2,9 +2,37 @@
 
 This workflow is portable across repositories and providers. Repository instructions define implementation and verification rules; this reference only defines shared coordination behavior. A label or skill grants no authority.
 
-## Claim records and states
+## Independent workstreams and claims
 
-Use one coordinator as the claim allocator. Before deep work, confirm the issue has no other live owner and record the claim on the issue. Every agent inspects the current owner, state, and open PRs and skips another owner's claim. Labels are cooperative signals, not atomic locks, and cannot prevent a concurrent race.
+Multiple independently authorized workstreams may proceed concurrently. Each
+bounded slice has one accountable owner; no repository-wide allocator is
+required. A coordinator can organize a named stream or dependency, but unrelated
+sessions do not need its permission or availability to start eligible authorized
+work. Recurring-queue limits apply only within that queue, not across a repository.
+
+A claim covers its issue. Independently owned parallel slices use linked child
+issues, each with its own owner/state/PR; multiple agents may still collaborate
+under one issue owner through bounded delegated briefs. A parent tracking owner
+summarizes dependencies and decisions without implicitly claiming its child
+implementations. Splitting already claimed implementation scope requires a
+recorded boundary agreed with its owner or explicit user direction; do not
+carve up another live claim unilaterally. This preserves one owner/state per
+issue without a shared-label aggregation or last-writer-wins allocator.
+
+Before claiming, inspect the issue, live claim records, dependencies and open
+PRs. Post the bounded claim, then re-read before deep work. Labels and comments
+are cooperative signals, not atomic locks; this does not prevent every race.
+If competing claims or incompatible changes appear, pause only the overlapping
+work and reconcile scope/handoff with its owners or user direction. Do not
+unilaterally choose a winner, discard work or stop unrelated streams.
+
+Separate worktrees and PRs isolate edits. A shared filename alone need not stop
+both streams; conflicting contract decisions or integration require an explicit
+boundary and order. Claim and respect actual scarce build/runtime resources
+under repository rules; source ownership does not reserve every machine. Check
+relevant concurrent changes again before integration and retain required review.
+
+## Claim records and states
 
 Use exactly one state label per owned issue:
 
@@ -17,9 +45,30 @@ Use exactly one state label per owned issue:
 | `agent:review` | The scoped PR awaits review or has feedback to reconcile. | Skip |
 | *(none)* | No active claim is recorded; verify the issue before considering it. | Candidate only |
 
-Keep the claim record brief. Include an opaque owner-session reference (never a conversation share link), worker identity, branch/PR if any, current state and last-update time, next action, and resume condition. Do not record credentials, private context, customer data, or local absolute paths. Keep the owner through waiting states. On escalation, record the bounded attempt and why stronger investigation, a new brief, or maintainer judgment is required.
+Keep the claim record brief and in the existing issue/PR. Include:
+
+- Opaque owner-session reference (never a conversation share link), assigned
+  worker if any, included/excluded scope and shared dependencies.
+- Branch/PR and recoverable head revision, current state and last-update time.
+- Actual proof/check results and accessible retained evidence references,
+  including which source/artifact revision they cover and what remains unverified.
+- Next bounded action, blocker/resume condition and outstanding owned operations
+  or shared-resource reservations; unknown process state stays unknown.
+
+Do not record credentials, private context, customer data or local absolute paths.
+The record should let another authorized session continue without the original
+chat. Keep the owner through waiting states. On escalation, record the bounded
+attempt and why stronger investigation, a new brief or maintainer judgment is
+required. A checkpoint grants no additional authority.
 
 When a claim appears stale, check whether the owner or PR is still active and arrange an explicit handoff. Never silently steal or replace a claim. Resume waiting work only when the record identifies approval, new evidence, a resolved prerequisite, review feedback, or another changed condition. Do not repeat the same failed attempt every run. When requeueing or closing, clear the owner and old state label explicitly so at most one state remains.
+
+If the user explicitly reassigns lost-session work, record the supersession and
+new owner; acknowledgment from the unavailable prior session is not required.
+Resume from recoverable source/evidence, identify unpublished/unavailable work,
+and preserve it rather than assume it is disposable. Reassignment does not
+prove old processes stopped or authorize their deletion. Delegated workers
+retain their brief until an authorized handoff changes it.
 
 ## Decisions and verification
 

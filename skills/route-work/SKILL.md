@@ -9,7 +9,7 @@ Apply the shared account and project instructions supplied in the current task c
 
 ## Apply the account's split policy
 
-If the account context sets a split between providers, follow it before choosing the cheapest model. Assign each substantial task, such as a spec to implement, a multi-file feature, a refactor, a long investigation, or a prototype, whole and end to end to one provider; never carve a task into small pieces to give the other provider a slice. Alternate whole tasks so each provider carries its target share by size, keep a running tally, and do not count code reviews toward the share. When unsure, follow the account's tiebreak. Tilt away from a provider that is running hot, and when one is out of credits or at a limit, run everything on the other until the user says it is back. Use the account's role-to-model map when it has one, and name the model and effort in every brief.
+If the account context sets a split between providers, follow it before choosing the cheapest model. Assign each substantial task, such as a spec to implement, a multi-file feature, a refactor, a long investigation, or a prototype, whole and end to end to one provider; never carve a task into small pieces to give the other provider a slice. Alternate whole tasks so each provider carries its target share by size, keep a running tally within the assigned workstream, and do not count code reviews toward the share. No global allocation conversation is required. When unsure, follow the account's tiebreak. Tilt away from a provider that is running hot, and when one is out of credits or at a limit, run everything on the other until the user says it is back. Use the account's role-to-model map when it has one, and name the model and effort in every brief.
 
 ## Check headroom and capability
 
@@ -19,7 +19,14 @@ Choose the provider for the whole task using the supplied account's allocation a
 
 ## Delegate and hand off
 
-For authorized multi-part work, the current user conversation remains coordinator for scope, priorities, decisions, dependencies, evidence review, and user updates. Workers own bounded execution tasks and report exact outcomes or blockers. Assign one worker to each long-running operation and let it run through completion. Do small one- or two-step tasks directly when briefing overhead is greater.
+For authorized multi-part work, its workstream owner handles scope, priorities,
+decisions, dependencies, evidence review and user updates. Multiple independently
+authorized sessions may own different streams and deliver their own PRs without
+a global coordinator. Delegated workers retain their bounded brief and report
+exact outcomes or blockers; changing that ownership needs an authorized handoff.
+Assign one worker to each long-running operation and let it finish. Keep resumable
+source/results/next-action context in the owning issue/PR, not only in the chat.
+Do small one- or two-step tasks directly when briefing overhead is greater.
 
 The coordinator may run on either provider. Every worker brief names the provider, role, exact supported model selector, and effort, and includes the full ask, repository rules, assigned repository/branch/worktree, files concurrent work is changing, allowed operations, required checks, and concrete completion criteria. Either provider may supply required separate review passes at the account's specified model tier; cross-provider review is optional unless the task explicitly requires it. The coordinator verifies the diff and check evidence and delivers the PR under repository rules.
 
