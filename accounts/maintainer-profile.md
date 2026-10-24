@@ -43,6 +43,16 @@ Any task and role can run on either provider, including coordination, implementa
 
 These are preferences, not an availability or pricing guarantee: use the live catalog, preserve the configured model when details are unavailable, and do not claim measured monetary savings from qualitative tiers. If a configured choice is a poor fit, say so briefly. End the response with a concise line naming the models, effort, and whether subagents were used.
 
+## GitHub Actions execution policy
+
+Micah's standing decision (2026-10-24): normal acceptance uses bounded local proofs and the applicable local repository checks. GitHub Actions is paused, on both GitHub-hosted and self-hosted runners. This replaces earlier expectations to wait for hosted CI or use a self-hosted runner for routine verification.
+
+- Do not enable Actions, dispatch or rerun a workflow, start/restart an Actions worker, or arrange substitute paid/cloud CI without Micah's fresh explicit approval for the named repository, workflow and run scope. Hardware upgrades, restored billing, a passing local proof, a push, a recurring instruction or old approval do not reactivate Actions.
+- Keep Actions disabled in currently managed repositories; create new managed repositories with Actions disabled unless the human explicitly approves otherwise. Preserve workflow definitions and runner installations for later use. A one-off approval does not authorize restoring automatic push, pull-request or scheduled triggers generally.
+- Perform the applicable bounded local checks and real user-flow proofs. Report Actions as intentionally disabled/unrun, never passed. Local proofs are sufficient for the maintainer's normal review/acceptance path, but do not fabricate platform coverage, waive observed failures, trust/compliance requirements or silently change branch protection/merge authority.
+- Keep this execution policy in every active coordinator's brief and relay changes to existing workers. Do not confuse a permitted local Docker/WSL proof or an already-authorized remote development workspace with a GitHub Actions run; those may continue under their task's resource and scope rules without starting an Actions worker.
+- Any future Actions approval must be narrowly scoped and recorded before enabling execution. Preserve the prior disabled state and return to it after the authorized scope, without opportunistically restoring broader automation.
+
 ## Proof and resource defaults
 
 Apply the shared [acceptance evidence and resource ownership contract](../policy/working-agreements.md#acceptance-evidence-and-resource-ownership) to Micah's tasks. These defaults are cooperative admission rules; they do not install a quota manager, watcher or cleanup schedule. Repository-required verification and stricter existing host limits remain in force.

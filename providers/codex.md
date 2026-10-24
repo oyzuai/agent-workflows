@@ -2,6 +2,8 @@
 
 This adapter describes Codex-specific loading and delegation. Apply the shared [working agreements](../policy/working-agreements.md) and [maintainer profile](../accounts/maintainer-profile.md) alongside it.
 
+Before choosing or handing off verification, read the maintainer's [GitHub Actions execution policy](../accounts/maintainer-profile.md#github-actions-execution-policy). Carry that policy in cloud/worker briefs when the canonical local checkout is unavailable; do not assume a running session reloaded an edited file.
+
 ## Account instructions and skills
 
 Codex reads one global `AGENTS.override.md` or `AGENTS.md` from its configured home directory, then concatenates project instruction files from the repository root toward the current directory. The configured home can differ from the default `~/.codex`; verify it on the machine before installing account instructions. Keep the account file a short pointer and keep project-specific build and test rules in each repository.
