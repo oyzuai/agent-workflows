@@ -27,3 +27,7 @@ For recurring coordination, the operator must separately decide repository scope
 ## Updating and attribution
 
 Pull updates to this repository, review the diff, and then update installed copies or links. Do not overwrite local changes silently. The [provenance map](../provenance.md) explains which authored workflow sources were consolidated and the intentional differences. The repository has not selected a license; do not infer permission to redistribute third-party content.
+
+## Verification venue in portable instructions
+
+Record the maintainer's current local/CI execution policy in project instructions and cloud/worker briefs when account files are unavailable. A local account pointer alone does not cover cloud sessions. Preserve applicable local checks, report intentionally unrun CI honestly, and obtain explicit scope before enabling workflow execution. Relay changes to existing sessions; do not assume an edited file was reloaded.

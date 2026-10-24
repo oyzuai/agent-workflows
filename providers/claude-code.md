@@ -2,6 +2,8 @@
 
 This adapter describes Claude Code-specific loading and delegation. Apply the shared [working agreements](../policy/working-agreements.md) and [maintainer profile](../accounts/maintainer-profile.md) alongside it.
 
+Before choosing or handing off verification, read the maintainer's [GitHub Actions execution policy](../accounts/maintainer-profile.md#github-actions-execution-policy). Carry that policy in cloud/worker briefs when the canonical local checkout is unavailable; do not assume a running session reloaded an edited file.
+
 ## Account instructions and skills
 
 Claude Code loads user instructions from `~/.claude/CLAUDE.md`. A `CLAUDE.md` can import shared files with an unquoted, un-fenced `@path` line. Absolute and relative imports are supported; relative imports resolve from the importing file. The current official documentation sets a four-hop import limit and requires escaping spaces in paths. The installed account adapter imports the common policy, profile, and provider details from this checkout.
