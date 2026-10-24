@@ -4,7 +4,7 @@ These agreements are the single source for account-wide behavior shared by Codex
 
 ## Scope and ownership
 
-The current user request defines the objective and allowed actions. Preserve its scope and prior authorization; a workflow, skill, issue label, or local instruction does not grant additional authority. The coordinating conversation owns priorities, decisions, dependencies, evidence review, and user updates. A worker owns only its assigned bounded operations. Assign one owner to each long-running operation and review evidence before reporting success.
+The current user request defines the objective and allowed actions. Preserve its scope and prior authorization; a workflow, skill, issue label, or local instruction does not grant additional authority. Multiple independently authorized workstreams may proceed concurrently, each with an accountable owner. A coordinating conversation owns priorities, decisions, dependencies, evidence review and user updates within its assigned workstream; it is not a repository-wide allocator or a prerequisite for unrelated sessions. A delegated worker owns its assigned bounded operations. Assign one owner to each long-running operation and review evidence before reporting success.
 
 Stay in the task's assigned worktree. Inspect its branch and status before editing; preserve unrelated changes. Before committing or pushing, report the exact repository, branch, and scoped files. For delegated work, give a concise objective and definition of done, owner, dependencies, allowed operations, required checks, and report format; review evidence from the owning worker rather than launching duplicate operations.
 
