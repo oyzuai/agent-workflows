@@ -1,10 +1,10 @@
 # Adopt the shared workflows
 
-This repository is the maintained source for the shared agreements, provider adapters, account templates, and skills. Adoption is a deliberate local or repository change; cloning this repository does not activate anything.
+This repository is the maintained source for the shared agreements, provider adapters, account instruction files, and skills. Adoption is a deliberate local or repository change; cloning this repository does not activate anything.
 
 ## Choose an installation scope
 
-- **Account instructions** apply across a user's projects. Copy the appropriate template in `templates/` to the provider's documented user instruction location, replace `<workflow-checkout>` with the local checkout path, and keep the checkout available. Account instructions are pointers so shared policy has one maintained copy.
+- **Account instructions** apply across a user's projects. Point the provider's documented user instruction file at the matching file in `../accounts/` (`CLAUDE.md` for Claude Code, `AGENTS.md` for Codex), using the local checkout path, and keep the checkout available. Account instructions are pointers so shared policy has one maintained copy.
 - **Personal skills** are installed separately in the provider's documented personal skill directory. Copy or link only the skill folders the user intends to use. Verify how the current client discovers them.
 - **Project instructions and skills** belong in the project repository when every contributor should receive them. Adapt the templates to that repository and commit them with its own build, architecture, and verification rules.
 
@@ -14,7 +14,7 @@ Provider discovery differs. Follow [`../providers/codex.md`](../providers/codex.
 
 1. Clone or update this repository in a stable location on the relevant machine.
 2. Review `accounts/maintainer-profile.md`; it contains static preferences, not current usage or availability.
-3. Adapt `templates/codex-account.md` or `templates/claude-code-account.md` for the provider's supported account instruction location. Preserve existing user instructions and unrelated preferences.
+3. Point the provider's account instruction location at `accounts/CLAUDE.md` (import it with `@path`) or `accounts/AGENTS.md` (copy it, replacing `<workflow-checkout>`). Preserve existing user instructions and unrelated preferences.
 4. Install desired skills using the provider-specific instructions. Keep each skill package's relative references together.
 5. Open a fresh session and verify that the account instruction and one selected skill are discoverable. Report any unsupported surface rather than claiming universal activation.
 
@@ -26,7 +26,7 @@ For recurring coordination, the operator must separately decide repository scope
 
 ## Updating and attribution
 
-Pull updates to this repository, review the diff, and then update installed copies or links. Do not overwrite local changes silently. The [provenance map](../provenance.md) explains which authored workflow sources were consolidated and the intentional differences. The repository has not selected a license; do not infer permission to redistribute third-party content.
+Pull updates to this repository, review the diff, and then update installed copies or links. Do not overwrite local changes silently. The repository has not selected a license; do not infer permission to redistribute third-party content.
 
 ## Verification venue in portable instructions
 

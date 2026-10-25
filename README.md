@@ -9,7 +9,6 @@ This public repository is the canonical source for reusable Codex and Claude acc
 - [`accounts/`](accounts/): thin provider-specific account instruction files and the maintainer profile.
 - [`skills/`](skills/): portable workflows, each packaged as a `SKILL.md` with any focused references beside it.
 - [`adoption/`](adoption/): installation guidance and reusable project instruction templates.
-- [`provenance.md`](provenance.md): source mapping and intentional migration differences.
 
 Skills and instructions are inert files until a supported local client reads or installs them. This repository does not activate schedules, account-synced skills, plugins, GitHub labels, or automation.
 
