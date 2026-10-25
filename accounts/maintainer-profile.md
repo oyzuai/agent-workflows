@@ -47,13 +47,13 @@ These are preferences, not an availability or pricing guarantee: use the live ca
 
 ## GitHub Actions execution policy
 
-Micah's standing decision (2026-10-24): normal acceptance uses bounded local proofs and the applicable local repository checks. GitHub Actions is paused, on both GitHub-hosted and self-hosted runners. This replaces earlier expectations to wait for hosted CI or use a self-hosted runner for routine verification.
+Micah's standing decision (2026-10-25): GitHub Actions is enabled again, on the self-hosted Linux runners of the OVH build server. This supersedes the 2026-10-24 pause. oyzuai/oyzu's Linux jobs run there in a fresh container per job (`oyzu-wsl` for pull requests and branches, `oyzu-main` for main); the server is configured in the platform repository's `deploy/ovh-farm`.
 
-- Do not enable Actions, dispatch or rerun a workflow, start/restart an Actions worker, or arrange substitute paid/cloud CI without Micah's fresh explicit approval for the named repository, workflow and run scope. Hardware upgrades, restored billing, a passing local proof, a push, a recurring instruction or old approval do not reactivate Actions.
-- Keep Actions disabled in currently managed repositories; create new managed repositories with Actions disabled unless the human explicitly approves otherwise. Preserve workflow definitions and runner installations for later use. A one-off approval does not authorize restoring automatic push, pull-request or scheduled triggers generally.
-- Perform the applicable bounded local checks and real user-flow proofs. Report Actions as intentionally disabled/unrun, never passed. Local proofs are sufficient for the maintainer's normal review/acceptance path, but do not fabricate platform coverage, waive observed failures, trust/compliance requirements or silently change branch protection/merge authority.
-- Keep this execution policy in every active coordinator's brief and relay changes to existing workers. Do not confuse a permitted local Docker/WSL proof or an already-authorized remote development workspace with a GitHub Actions run; those may continue under their task's resource and scope rules without starting an Actions worker.
-- Any future Actions approval must be narrowly scoped and recorded before enabling execution. Preserve the prior disabled state and return to it after the authorized scope, without opportunistically restoring broader automation.
+- Workflows run on push, pull request, schedule and dispatch as their definitions say. Use their results together with the applicable bounded local checks and real user-flow proofs. Record the revision, run and result; report a failed, skipped or not-run check as exactly that, never as passed.
+- GitHub-hosted runners stay off by default. Leave `OYZU_HOSTED_RUNNERS` unset, and run a hosted-only job (macOS, Windows, release, signing, toolchain images) only with Micah's approval for that run.
+- Do not move CI back onto the desktop's WSL runner, change runner counts or labels outside `deploy/ovh-farm`, or arrange other paid or cloud CI without Micah's approval.
+- Preserve required safety, trust and compliance checks, observed failures and honest platform coverage. Do not silently change branch protection or merge/approval authority.
+- Carry this policy into coordinator and worker briefs and relay it to existing workers; editing a file does not prove running sessions reloaded it. Do not confuse a permitted local Docker/WSL proof or an already-authorized remote development workspace with a GitHub Actions run.
 
 ## Proof and resource defaults
 
