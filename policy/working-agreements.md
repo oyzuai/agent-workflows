@@ -60,7 +60,7 @@ Every session, subagent, worker thread, and background task leaves the machine a
 
 ## Be practical
 
-Do the task, run the tests that matter, and say plainly whether they passed or failed (the command and pass/fail is enough). Don't write extra docs, status or qualification files, proof files or new scripts unless the change actually needs them or the task asks for them; update docs only where user-facing behavior changed; keep PR descriptions short. Clean up builds, workspaces, containers and images you created (never other people's data) and say how much disk you used. Never skip signing, provenance or compliance checks, and never hide a failure.
+Do the task, run the tests that matter, and say plainly whether they passed or failed (the command and pass/fail is enough). Keep user-facing documentation up to date: whenever a change alters what users see or do, update the existing user-facing docs in the same change. Don't write other docs (status or qualification files, proof files, internal write-ups) or new scripts unless the change actually needs them or the task asks for them. Keep PR descriptions short. Clean up builds, workspaces, containers and images you created (never other people's data) and say how much disk you used. Never skip signing, provenance or compliance checks, and never hide a failure.
 
 Where the sections below ask for receipts, ledgers or handoff details, keep them to a few lines in the PR description or handoff, not separate files.
 
