@@ -4,6 +4,8 @@ How to get a coordinator-and-workers experience in Codex like the one in a Claud
 
 Codex behavior below was read from the official docs (now served from `learn.chatgpt.com/docs`) on 2026-10-25. These are portable instructions, not runtime certification. Validate discovery, role selection and isolation in each installed client; items marked *unverified* need a test before you rely on them.
 
+Start by validating Codex-native coordination: installed instructions and skills, bounded workers, fresh-context review, and explicit worktrees. Claude integration is optional follow-up capability work when the user defers it; do not let missing Claude authentication block an explicitly Codex-only setup. This does not rewrite the account provider split: honor the current user's provider scope, and resume cross-provider routing only when authorized and supported.
+
 ## Where the experience comes from
 
 Most of it is rules plus tooling, and Codex has the tooling. Three parts are harness features with no direct Codex twin.
