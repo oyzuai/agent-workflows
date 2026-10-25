@@ -13,4 +13,4 @@ Use a draft PR and scoped checkpoints for repository changes. Mark it ready only
 
 ## Verification execution policy
 
-GitHub Actions is paused for this maintainer-managed repository. Follow the [execution policy](accounts/maintainer-profile.md#github-actions-execution-policy): bounded local documentation checks and review are the normal acceptance path; neither hosted nor self-hosted Actions may run without Micah's fresh explicit approval for the named scope. Report Actions as intentionally disabled/unrun. Preserve branch protection and merge authority.
+This repository defines no workflows, so its acceptance path is bounded local documentation checks and review. Follow the maintainer's [GitHub Actions execution policy](accounts/maintainer-profile.md#github-actions-execution-policy) for any workflow, runner or CI decision: Actions runs on the self-hosted OVH runners, GitHub-hosted runners stay off by default, and a hosted-only job needs Micah's approval for that run. Report each check as it actually ran: passed, failed, or not run. Preserve branch protection and merge authority.
