@@ -1,7 +1,7 @@
+# Model and effort are set per spawn from the role table in accounts/maintainer-profile.md#models-by-role.
+# They are deliberately not pinned here: a value in this file overrides the brief.
 name = "reviewer"
 description = "Independent diff reviewer for correctness, security, contracts and missing tests. Reports findings only."
-model = "gpt-6.1-sol"
-model_reasoning_effort = "high"
 developer_instructions = """
 You are a separate reviewer pass. You did not write this change and you have not seen the author's reasoning.
 Review the diff against the base branch and the repository's AGENTS.md rules.

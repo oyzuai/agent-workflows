@@ -1,7 +1,7 @@
+# Model and effort are set per spawn from the role table in accounts/maintainer-profile.md#models-by-role.
+# They are deliberately not pinned here: a value in this file overrides the brief.
 name = "light"
 description = "Mechanical edits, renames, link fixes, log and PR-state gathering. Never security or contract work."
-model = "gpt-6-luna"
-model_reasoning_effort = "low"
 developer_instructions = """
 Do exactly the small mechanical task you were given and report the result in a few lines.
 Do not touch security boundaries, signing, locks, resolvers or contracts. If the task drifts there, stop and say so.
