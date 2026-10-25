@@ -20,6 +20,18 @@ Use the collaboration tools available in the current Codex surface only when the
 
 Never run repository Codex environment setup scripts. Follow the repository's own toolchain instructions for commands; do not install toolchains or fall back to host tools when the repository requires a managed runtime.
 
+## Launching Claude from Codex
+
+The provider split remains in force when a launch tool is missing. Inspect the installed Claude Code CLI and its `--help` before relying on a launcher; do not assume a Claude-to-Codex launcher also works in reverse. A supported local CLI can provide a bounded manual bridge: prepare a separate worktree, write the full brief, then start a new named session there with `claude --name <name> --model <selector> --effort <effort> <brief>`. Use the installed CLI spelling and inspect the resolved model and session ID. Preserve normal permission prompts; never add bypass flags or create credentials. A headless `--print` run is not automatically a findable interactive session. If using `--background`, verify its session ID, supported status/stop controls and permission behavior first.
+
+Check authentication using the CLI status command, never credential-file contents. Record unavailable usage as unknown. Launch only when the current task authorizes communication with Claude; preparation and help inspection alone do not authorize sending a brief. If approval, authentication, visibility or permissions are missing, report the exact blocker and keep the task assigned to its intended provider. Do not silently convert the split into Codex-only routing.
+
+## Worktree and review isolation
+
+A custom agent name does not create an isolated checkout. Prepare and assign a distinct worktree before implementation and verify its real path, status and write access. Subagents inherit parent permissions; a read-only instruction is not a security boundary. Use a read-only parent session when enforced read-only review is needed.
+
+Independent review requires fresh context. Use a supported spawn with no history inheritance (for example `fork_turns="none"` when exposed), or a new thread started without fork/resume history. Supply scope, diff/base/head and repository rules, not the author conversation or rationale. If the surface cannot establish this, report review as not independent and use an authorized fresh session. Confirm the actual agent, model and effort from runtime evidence instead of relying on the brief.
+
 ## Cleaning up
 
 Apply "Cleaning up sessions, workers, and temporary files" from the working agreements. Close or archive the threads and workers you launched where the surface allows it, and remove the worktrees created for them with `git worktree remove` from the owning repository, as the policy describes.
