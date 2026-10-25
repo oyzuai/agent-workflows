@@ -30,6 +30,7 @@ Any task and role can run on either provider, including coordination, implementa
 | Every review round on PRs touching security, locks, resolvers or contracts | Opus (`opus`), high | GPT-6.1 Sol (`gpt-6.1-sol`), high |
 | Later review rounds on small fixes outside security, locks, resolvers and contracts | Sonnet (`sonnet`), medium | GPT-6.1 Sol (`gpt-6.1-sol`), medium |
 | Investigations: CI root-causing, reproductions, perf measurements | Sonnet (`sonnet`), high; Opus (`opus`), high if stalled | GPT-6.1 Sol (`gpt-6.1-sol`), high |
+| Verification runs: executing a given test plan or real-flow proof on a named host (such as Windows tests on the desktop) and reporting exact results | Sonnet (`sonnet`), medium; investigation tier if a failure needs root-causing | GPT-6.1 Sol (`gpt-6.1-sol`), medium |
 | Design or security judgment referred by the coordinator | Opus (`opus`), high | GPT-6.1 Sol (`gpt-6.1-sol`), high |
 
 - Either provider can supply the first diff review. Use Opus or GPT-6.1 Sol at high effort in a separate reviewer pass; cross-provider review is optional. An AI review is not PR approval, and reviews do not count toward the substantial-work allocation.
@@ -38,6 +39,7 @@ Any task and role can run on either provider, including coordination, implementa
 - Light-work models (Haiku, Luna) never touch security or contracts.
 - Claude's Fable 5.1 (`claude-fable-5-1`) remains a last-resort escalation only after Opus has failed once on the same problem, or when explicitly requested; verify availability and preserve the no-purchase rule.
 - Never choose xhigh, max, or ultra unless explicitly requested.
+- **Sessions whose model is set at start.** Project threads, Remote Control sessions and other new sessions start on the surface's default model and effort, and some surfaces allow switching only at the user's own request. There, the coordinator cannot pick a model per session. Set the surface's default to the coordination tier (Sonnet, high), and have a session whose role needs another tier run that work through a supported per-call control (for example a Claude agent call with the role's `model` and effort) or ask the user to switch it. Do not report a session as running its role's model when it is on the default.
 - Use the model selectors shown in backticks, not display labels such as `Sol`. The Claude Code selectors are documented aliases that resolve by provider; confirm the resolved model rather than assuming a particular version. For API or other surfaces that require a full Claude model ID, resolve and record that supported ID before dispatch. The Codex selectors are explicit IDs from the current local catalog. Confirm model availability and supported effort at dispatch; if the requested role or effort cannot be supplied, report the limitation rather than silently downgrading it.
 - Codex carries its share of design-heavy work, not only routine tasks.
 
