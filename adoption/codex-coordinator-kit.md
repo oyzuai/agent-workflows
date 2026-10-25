@@ -1,6 +1,6 @@
 # Codex coordinator kit
 
-How to get a coordinator-and-workers experience in Codex like the one in a Claude project: a coordinator that briefs bounded workers, independent review before a PR is ready, short status posts, and work that moves between your machine and the cloud. The shared rules already live in [`working-agreements.md`](../policy/working-agreements.md), the [maintainer profile](../accounts/maintainer-profile.md) and the [Codex adapter](../providers/codex.md); this kit only wires them into Codex and does not restate them.
+How to get a coordinator-and-workers experience in Codex like the one in a Claude project: a coordinator that briefs bounded workers, independent review before a PR is ready, short status posts, and work that moves between your machine and the cloud. Keep account/compatibility pointers and installed skills/roles on one reviewed snapshot; back up files before an authorized refresh and identify unmerged snapshots by PR/head. Verify discovery in a fresh read-only session; do not claim existing sessions adopted it. The shared rules already live in [`working-agreements.md`](../policy/working-agreements.md), the [maintainer profile](../accounts/maintainer-profile.md) and the [Codex adapter](../providers/codex.md); this kit only wires them into Codex and does not restate them.
 
 Codex behavior below was read from the official docs (now served from `learn.chatgpt.com/docs`) on 2026-10-25. These are portable instructions, not runtime certification. Validate discovery, role selection and isolation in each installed client; items marked *unverified* need a test before you rely on them.
 
@@ -19,7 +19,7 @@ Most of it is rules plus tooling, and Codex has the tooling. Three parts are har
 | Team memory across threads | Harness memory service | `AGENTS.md`, repository files and Codex memories (not evaluated here). Weaker: no shared team store |
 | Watchdog and status check-ins | Harness scheduled wake-ups | A scheduled task inside an existing chat (minute, daily or weekly) |
 | Cloud session reaching your machine, permission cards | Harness device routing and Remote Control | Desktop app, remote connections, phone approvals. Different shape, see below |
-| Short, friendly, answer-first posts | Mostly personal preference plus model style | A style line in the opening prompt; not in the shared policy |
+| Short, friendly, answer-first posts | Mostly personal preference plus model style | The shared finite acceptance contract plus a concise opening prompt |
 
 So the trick is mostly written down: a coordinator section in `AGENTS.md`, custom agents, and an opening prompt that states the goal and the definition of done. The seamless local/cloud feel is the part Codex does least of, because you choose the surface per thread.
 
@@ -86,7 +86,7 @@ Use the high tier for the first review of every implementation PR and for securi
 
 ## Status cadence
 
-Ask the user to set up a scheduled task inside the coordinator chat so each run returns with context; the [working agreements](../policy/working-agreements.md#changes-and-external-effects) do not let an agent create recurring work unasked, and the agent should not poll. Make the scheduled prompt read-only, for example select `review-work` in the desktop skill picker (`@` where available) or invoke `$review-work` in the CLI and say what to check, when to report, and when to stop or ask. Where the scheduler supports that frequency, a short check every 15 minutes while workers run and a summary every hour, each saying nothing is new when that is true. It needs the desktop app running; the docs do not say whether a cloud task can hold a schedule.
+Follow the shared [finite acceptance contract](../policy/working-agreements.md#finite-acceptance-contract): report milestones, blockers and decisions, with no more than an hour of silence during active work. A stalled investigation needs options and a bounded next step. Use the current conversation; do not ask for a schedule merely to satisfy progress updates. Recurring or unattended reviews require separate user authorization and supported scheduling. A session cannot promise updates while it is inactive.
 
 ## Handing work to your machine
 
