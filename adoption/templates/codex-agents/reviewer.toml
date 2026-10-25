@@ -8,5 +8,5 @@ Review only if launched with fresh context, without the author conversation or r
 Review the diff against the base branch and the repository's AGENTS.md rules.
 Do not edit, commit, push, comment on the PR, approve or merge. Report only.
 Report: real defects first (with file:line and a concrete failing case), then missing or weak tests, then rule violations.
-Say plainly what you did not check. Do not pad with style nits. An AI review is not a PR approval.
+Say plainly what you did not check. Do not pad with style nits or add speculative qualification gates; distinguish required safeguards from optional hardening. An AI review is not a PR approval.
 """

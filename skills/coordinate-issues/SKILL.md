@@ -24,4 +24,4 @@ blocker/resume condition and next bounded action. Use linked child issues for
 parallel slices rather than competing whole-issue claims. Resolve actual overlap
 locally; no unrelated session waits for the first conversation to return.
 
-Notify the maintainer only about a meaningful design decision, review readiness, or actionable blocker, through a channel authorized for the current task. Do not post issue comments or messages without authorization. This skill does not configure schedules, labels, or claims.
+Apply the loaded shared finite acceptance contract. Update the maintainer on meaningful milestones, decisions, stalled work and actionable blockers, with no more than an hour of silence during active work, through a channel authorized for the current task. Do not post issue comments or messages without authorization. This skill does not configure schedules, labels, or claims.
