@@ -18,6 +18,10 @@ Provider discovery differs. Follow [`../providers/codex.md`](../providers/codex.
 4. Install desired skills using the provider-specific instructions. Keep each skill package's relative references together.
 5. Open a fresh session and verify that the account instruction and one selected skill are discoverable. Report any unsupported surface rather than claiming universal activation.
 
+## Codex coordinator kit
+
+To get a coordinator, workers, independent review and status check-ins in Codex, follow [`codex-coordinator-kit.md`](codex-coordinator-kit.md). It has an `AGENTS.md` coordinator section ([`templates/codex-coordinator-AGENTS.md`](templates/codex-coordinator-AGENTS.md)), custom agent files ([`templates/codex-agents/`](templates/codex-agents/)) and a session-opening prompt.
+
 ## Project adoption
 
 Use [`templates/project-AGENTS.md`](templates/project-AGENTS.md) and, where supported and needed, [`templates/project-CLAUDE.md`](templates/project-CLAUDE.md). Replace placeholders with repository-specific links and rules. Choose one coordinator and claim allocator for any shared issue queue; labels are cooperative signals, not locks. The guide does not create labels, schedules, claims, permissions, or automation.
