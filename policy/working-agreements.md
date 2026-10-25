@@ -58,6 +58,17 @@ Every session, subagent, worker thread, and background task leaves the machine a
 - **Boundaries.** Remove only what this task created: record the paths when creating them. Never delete another session's, person's, or program's worktrees, branches, caches, stores, or installed tools, and never force a removal past a lock, uncommitted work, or unpublished commits; keep that work until it is pushed or its owner takes it over, and report it instead. Low disk space is not a reason to delete anything you did not create: report the largest consumers and ask.
 - **Report.** When finishing, say in one line what was removed and what remains (path, size, owner, and why).
 
+## Proportional output
+
+Output is proportional to the change: the code, the tests that matter, documentation only where user-facing behavior changed, and one short PR description.
+
+- **Report checks plainly.** Give each check as its command and pass or fail, plus the failure output when it fails. Do not write narrative proofs, proof or results files, or one-off tooling to run or record checks.
+- **Records only for milestones.** Add status, qualification or evidence records only for user-visible capability changes or release/platform milestones, or when the owning repository requires them.
+- **Leave no bulk behind.** When done, remove the builds, workspaces, containers and images you created that will not be reused (never other people's data), and state the disk used.
+- **Safeguards stay.** Signing, provenance, compliance checks and honest reporting of failures and unrun checks are not reduced by this rule.
+
+Where the sections below ask for receipts, ledgers or handoff details, keep them as a few lines in the PR description or handoff, not as separate files.
+
 ## Acceptance evidence and resource ownership
 
 Before substantial verification, name the user-visible claim, the smallest convincing end-to-end check, its expected result, and the evidence to retain. Give every temporary source copy, compiler output, captured environment and proof directory one owner and a disposal condition. A successful result is not permission to retain the entire working environment indefinitely. Coordinators own resource admission and release of returned workers' disposable output; preserve source, unpublished work and uniquely authored evidence.
