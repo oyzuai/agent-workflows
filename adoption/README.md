@@ -30,4 +30,4 @@ Pull updates to this repository, review the diff, and then update installed copi
 
 ## Verification venue in portable instructions
 
-Record the maintainer's current local/CI execution policy in project instructions and cloud/worker briefs when account files are unavailable. A local account pointer alone does not cover cloud sessions. Preserve applicable local checks, report each check as it actually ran (passed, failed or not run), and obtain explicit approval before running a hosted-only job or changing runner arrangements. Relay changes to existing sessions; do not assume an edited file was reloaded.
+Record the maintainer's current local/CI execution policy in project instructions and cloud/worker briefs when account files are unavailable. A local account pointer alone does not cover cloud sessions. Preserve applicable local checks, report each check as it actually ran (passed, failed or not run), and obtain explicit approval for anything that policy reserves, such as a hosted-only job or a runner change. Relay changes to existing sessions; do not assume an edited file was reloaded.

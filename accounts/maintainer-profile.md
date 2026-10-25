@@ -47,7 +47,7 @@ These are preferences, not an availability or pricing guarantee: use the live ca
 
 ## GitHub Actions execution policy
 
-Micah's standing decision (2026-10-25): GitHub Actions is enabled again, on the self-hosted Linux runners of the OVH build server. This supersedes the 2026-10-24 pause. Which repositories run which runner labels is set in the platform repository's `deploy/ovh-farm`, not here.
+Micah's standing decision (2026-10-25): GitHub Actions is enabled again, on the self-hosted Linux runners of the OVH build server. This supersedes the 2026-10-24 pause. oyzuai/oyzu's Linux jobs run there in a fresh container per job (`oyzu-wsl` for pull requests and branches, `oyzu-main` for main); the server is configured in the platform repository's `deploy/ovh-farm`.
 
 - Workflows run on push, pull request, schedule and dispatch as their definitions say. Use their results together with the applicable bounded local checks and real user-flow proofs. Record the revision, run and result; report a failed, skipped or not-run check as exactly that, never as passed.
 - GitHub-hosted runners stay off by default. Leave `OYZU_HOSTED_RUNNERS` unset, and run a hosted-only job (macOS, Windows, release, signing, toolchain images) only with Micah's approval for that run.
