@@ -58,6 +58,12 @@ Every session, subagent, worker thread, and background task leaves the machine a
 - **Boundaries.** Remove only what this task created: record the paths when creating them. Never delete another session's, person's, or program's worktrees, branches, caches, stores, or installed tools, and never force a removal past a lock, uncommitted work, or unpublished commits; keep that work until it is pushed or its owner takes it over, and report it instead. Low disk space is not a reason to delete anything you did not create: report the largest consumers and ask.
 - **Report.** When finishing, say in one line what was removed and what remains (path, size, owner, and why).
 
+## Be practical
+
+Do the task, run the tests that matter, and say plainly whether they passed or failed (the command and pass/fail is enough). Keep user-facing documentation up to date: whenever a change alters what users see or do, update the existing user-facing docs in the same change. Don't write other docs (status or qualification files, proof files, internal write-ups) or new scripts unless the change actually needs them or the task asks for them. Keep PR descriptions short. Clean up builds, workspaces, containers and images you created (never other people's data) and say how much disk you used. Never skip signing, provenance or compliance checks, and never hide a failure.
+
+Where the sections below ask for receipts, ledgers or handoff details, keep them to a few lines in the PR description or handoff, not separate files.
+
 ## Acceptance evidence and resource ownership
 
 Before substantial verification, name the user-visible claim, the smallest convincing end-to-end check, its expected result, and the evidence to retain. Give every temporary source copy, compiler output, captured environment and proof directory one owner and a disposal condition. A successful result is not permission to retain the entire working environment indefinitely. Coordinators own resource admission and release of returned workers' disposable output; preserve source, unpublished work and uniquely authored evidence.
