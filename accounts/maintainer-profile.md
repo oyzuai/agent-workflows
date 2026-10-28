@@ -4,6 +4,8 @@ These are static personal preferences, not a current usage report or a claim abo
 
 ## Allocation objective
 
+Prioritize shipping useful, working increments. Apply the shared [delivery discipline](../policy/working-agreements.md#delivery-discipline): meet the agreed acceptance criteria and required safeguards, then deliver. Optional hardening, broader qualification and custom proof machinery must not delay completed work. When delivery stalls, narrow the next action to a concrete product blocker instead of adding verification rounds.
+
 Use Claude and Codex about equally. Both budgets are large, and Codex gets its fair half of the hard work, not the leftovers. The mechanism (whole tasks, alternation, orchestration, briefs) is in the shared working agreements under "Splitting work between providers"; this profile sets the numbers and models.
 
 This profile is standing authorization for either provider to delegate whole substantial tasks through available Codex or Claude tools as described here, without asking per task. It authorizes nothing beyond the user's task: no schedules, purchases, merges, or other external effects.
