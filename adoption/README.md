@@ -28,6 +28,18 @@ Use [`templates/project-AGENTS.md`](templates/project-AGENTS.md) and, where supp
 
 For recurring coordination, the operator must separately decide repository scope, coordinator, cadence, and budget context, then configure and observe the schedule in the intended client. Treat a review-cap such as three pending items as a configurable recommendation, not a default requirement. This repository does not configure or activate recurring work.
 
+## Oyzu issue classification
+
+For every `oyzuai` repository, include the issue-taxonomy section from the project
+templates in `AGENTS.md`; ensure `CLAUDE.md` imports that file or includes the same
+read instruction. Install the complete [`classify-issues`](../skills/classify-issues/SKILL.md)
+folder when local skill discovery is desired. The instruction also supports an
+explicit repository-tool read, so cloud sessions do not depend on personal
+installation. Apply this when creating new repositories too. Keep label names and
+descriptions in the bundled catalog; do not maintain per-repository copies.
+These files take effect when adopted on the branch a session reads; PR creation
+alone does not activate them on the default branch.
+
 ## Updating and attribution
 
 Pull updates to this repository, review the diff, and then update installed copies or links. Do not overwrite local changes silently. The repository has not selected a license; do not infer permission to redistribute third-party content.

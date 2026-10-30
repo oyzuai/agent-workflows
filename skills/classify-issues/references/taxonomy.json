@@ -1,0 +1,105 @@
+{
+  "organization": "oyzuai",
+  "families": {
+    "type": {
+      "color": "1D76DB",
+      "labels": {
+        "type:bug": "Existing behavior is incorrect or broken.",
+        "type:feature": "Adds a capability that does not exist yet.",
+        "type:improvement": "Improves an existing capability.",
+        "type:maintenance": "Internal upkeep, refactoring, dependencies or qualification.",
+        "type:docs": "Documentation is the primary deliverable.",
+        "type:investigation": "Resolves a question, evaluates an approach or establishes a design.",
+        "type:tracking": "Coordinates a larger outcome through child issues."
+      }
+    },
+    "area": {
+      "color": "007A68",
+      "labels": {
+        "area:build": "Discovery, planning, build graphs, orchestration and artifact assembly.",
+        "area:cache": "Cache keys, invalidation, result and compiler-state reuse.",
+        "area:execution": "Processes, isolation, environments, cancellation and resource handling.",
+        "area:plugins": "Protocol, SDK, hosting, discovery, compatibility and installation.",
+        "area:tools": "Toolchain resolution, acquisition, installation and activation.",
+        "area:config": "Configuration, precedence, validation and lockfiles.",
+        "area:tasks": "Task discovery, definitions, dependencies and invocation.",
+        "area:testing": "Product test selection, sharding, flaky-test handling and reports.",
+        "area:publisher": "Publishing built user artifacts to GitHub, OCI, npm or PyPI.",
+        "area:versioning": "Version inference, Git history, tags and release intent.",
+        "area:release": "Shipping Oyzu and plugins, distribution, channels and self-update.",
+        "area:remote": "Remote runs, execution integration and replay.",
+        "area:trust": "Signing, verification, identity of artifacts, credentials and enforcement boundaries.",
+        "area:ci": "Repository workflows and verification infrastructure.",
+        "area:compliance": "Licenses, notices, disclosure and distribution obligations.",
+        "area:identity": "Sign-in, SSO, sessions and enterprise identity provisioning.",
+        "area:access": "Roles, permissions, memberships, authorization and delegation.",
+        "area:accounts": "Organizations, tenants and account lifecycle.",
+        "area:projects": "Projects, repositories and their configuration and relationships.",
+        "area:policy": "Inherited controls, constraints, approvals and governance.",
+        "area:secrets": "Secret storage, rotation and credential delivery.",
+        "area:runs": "Run submission, jobs, lifecycle, results and retries.",
+        "area:fleet": "Worker pools, placement, capacity and worker readiness.",
+        "area:registry": "Artifact registration, metadata, discovery and retention.",
+        "area:delivery": "Artifact downloads, distribution proxies and delivery authorization.",
+        "area:deployments": "Environments, plans, rollout and rollback.",
+        "area:metrics": "Product analytics: build/cache trends, usage, consumption and aggregate reporting.",
+        "area:audit": "Attributable activity, change history and durable audit records.",
+        "area:observability": "Service instrumentation, health monitoring, logs, traces and alerting.",
+        "area:integrations": "Webhooks, GitHub and other external providers and connectors.",
+        "area:infrastructure": "Hosting, networking, databases, backups and operational recovery.",
+        "area:design-system": "Shared UI components, interaction patterns and accessibility."
+      }
+    },
+    "ecosystem": {
+      "color": "7057FF",
+      "labels": {
+        "ecosystem:rust": "Rust / Cargo",
+        "ecosystem:go": "Go",
+        "ecosystem:python": "Python, pip, Poetry and uv",
+        "ecosystem:node": "Node.js, npm, pnpm and Yarn",
+        "ecosystem:jvm": "Java / JVM, Maven and Gradle",
+        "ecosystem:dotnet": ".NET / NuGet / MSBuild",
+        "ecosystem:zig": "Zig",
+        "ecosystem:swift": "Swift / SwiftPM",
+        "ecosystem:c-cpp": "C and C++",
+        "ecosystem:docker": "Docker / BuildKit",
+        "ecosystem:helm": "Helm"
+      }
+    },
+    "surface": {
+      "color": "C5DEF5",
+      "labels": {
+        "surface:cli": "Command-line experience.",
+        "surface:portal": "Regular user/project web experience.",
+        "surface:admin": "Account or organization administration.",
+        "surface:ops": "Internal operator experience and controls.",
+        "surface:api": "API-specific contract or client experience."
+      }
+    },
+    "os": {
+      "color": "EDEDED",
+      "labels": {
+        "os:windows": "Windows-specific scope.",
+        "os:macos": "macOS-specific scope.",
+        "os:linux": "Linux-specific scope."
+      }
+    },
+    "flag": {
+      "color": "D93F0B",
+      "labels": {
+        "flag:regression": "Previously working behavior broke.",
+        "flag:performance": "Performance or resource efficiency is central.",
+        "flag:security": "A security concern supported by the issue."
+      }
+    },
+    "priority": {
+      "color": "B60205",
+      "labels": {
+        "priority:p0": "Immediate incident.",
+        "priority:p1": "Next up.",
+        "priority:p2": "Normal planned work.",
+        "priority:p3": "Lower-priority backlog."
+      }
+    }
+  }
+}

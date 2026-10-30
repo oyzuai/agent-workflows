@@ -13,3 +13,7 @@ Use one reviewed shared snapshot as the source of truth, including the finite ac
 Apply the delivery discipline in `<workflow-checkout>/policy/working-agreements.md#delivery-discipline` as a stopping rule: deliver when the agreed scope and required checks are complete; do not invent additional qualification gates.
 
 Use `$coordinate-issues`, `$route-work`, or `$review-work` only when the corresponding skill is installed and the task calls for it. Skill availability does not activate schedules or authorize external actions.
+
+For authorized issue work in `oyzuai`, explicitly read the shared
+[`classify-issues` skill](../skills/classify-issues/SKILL.md) and its bundled catalog
+before creating an issue, even when local skill discovery is unavailable.
