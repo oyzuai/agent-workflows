@@ -25,3 +25,9 @@ parallel slices rather than competing whole-issue claims. Resolve actual overlap
 locally; no unrelated session waits for the first conversation to return.
 
 Apply the loaded shared finite acceptance contract. Update the maintainer on meaningful milestones, decisions, stalled work and actionable blockers, with no more than an hour of silence during active work, through a channel authorized for the current task. Do not post issue comments or messages without authorization. This skill does not configure schedules, labels, or claims.
+
+When authorized coordination creates, splits or reclassifies an issue in `oyzuai`,
+first read and apply the shared
+[`classify-issues` skill](https://github.com/oyzuai/agent-workflows/blob/main/skills/classify-issues/SKILL.md)
+and its bundled catalog. Keep classification labels separate from cooperative
+`agent:*` states. Outside `oyzuai`, retain the target repository's conventions.

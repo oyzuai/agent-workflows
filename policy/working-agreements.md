@@ -14,6 +14,16 @@ Before delegating, confirm that the task needs more than one or two direct opera
 
 Read each file once and only the needed range. Send long output through a bounded view such as a search or tail, do not poll, and avoid unrequested extras. Summarize results concisely and give users a brief with the minimum evidence and next action when handing work off. End the response with the model mix when the account profile requires it.
 
+## Oyzu issue classification
+
+For authorized issue creation, splitting, transfer or reclassification in any
+`oyzuai` repository, read the [`classify-issues` skill](../skills/classify-issues/SKILL.md)
+and its bundled catalog before writing the issue. Use its canonical vocabulary
+and read-back procedure; preserve ownership and workflow labels. Outside this
+organization, follow the target repository's conventions. Repository instructions
+and adoption templates provide discovery pointers; a URL is not an automatic
+import. The skill grants no additional issue-management authority.
+
 ## Splitting work between providers
 
 This applies when the account profile enables a Codex and Claude split. The profile sets the target share, thresholds, models, and effort; this section owns the mechanism.
