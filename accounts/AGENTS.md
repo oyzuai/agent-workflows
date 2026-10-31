@@ -15,5 +15,5 @@ Apply the delivery discipline in `<workflow-checkout>/policy/working-agreements.
 Use `$coordinate-issues`, `$route-work`, or `$review-work` only when the corresponding skill is installed and the task calls for it. Skill availability does not activate schedules or authorize external actions.
 
 For authorized issue work in `oyzuai`, explicitly read the shared
-[`classify-issues` skill](../skills/classify-issues/SKILL.md) and its bundled catalog
+`<workflow-checkout>/skills/classify-issues/SKILL.md` and its bundled catalog
 before creating an issue, even when local skill discovery is unavailable.
