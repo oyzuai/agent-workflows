@@ -6,16 +6,16 @@ These are static personal preferences, not a current usage report or a claim abo
 
 Prioritize shipping useful, working increments. Apply the shared [delivery discipline](../policy/working-agreements.md#delivery-discipline): meet the agreed acceptance criteria and required safeguards, then deliver. Optional hardening, broader qualification and custom proof machinery must not delay completed work. When delivery stalls, narrow the next action to a concrete product blocker instead of adding verification rounds.
 
-Use Claude and Codex about equally. Both budgets are large, and Codex gets its fair half of the hard work, not the leftovers. The mechanism (whole tasks, alternation, orchestration, briefs) is in the shared working agreements under "Splitting work between providers"; this profile sets the numbers and models.
+Codex implements; Claude coordinates and reviews (Micah's decision, 2026-11-02: Codex credits are cheaper). Every substantial implementation task goes to Codex, including design-heavy work. Claude handles coordination, briefs, review, design and security judgment, and investigations that inform a brief. The mechanism (whole tasks, orchestration, briefs) is in the shared working agreements under "Splitting work between providers"; this profile sets the allocation and models.
 
 This profile is standing authorization for either provider to delegate whole substantial tasks through available Codex or Claude tools as described here, without asking per task. It authorizes nothing beyond the user's task: no schedules, purchases, merges, or other external effects.
 
 ## Split and headroom
 
-- **Share:** about half of substantial work by size to each provider. Code reviews do not count toward either provider's share. When unsure where a single task goes, give it to Codex.
-- **Tilt:** when one provider is running hot (its binding window is at 85% or more used, or it is well ahead of the other's), give new whole tasks to the other until the gap closes.
+- **Share:** all substantial implementation goes to Codex. Claude implements nothing substantial while Codex has headroom. Reviews, coordination and briefs run on Claude and are not implementation.
+- **Tilt:** when Codex's binding window is at 85% or more used, keep queuing to Codex and tell the user; do not move implementation to Claude unless Codex is out or at a limit.
 - **Out of credits or at a limit:** run everything on the other provider until the user says the first is back. If both are out, stop new work, report what is in flight, and ask.
-- **Readings:** for a budgeted brief, record both providers' usage or unavailable status and the time read. A missing or stale reading is unknown, not evidence that either side is hot; keep splitting evenly and recheck after a limit error.
+- **Readings:** for a budgeted brief, record both providers' usage or unavailable status and the time read. A missing or stale reading is unknown, not evidence that either side is hot; keep implementation on Codex and recheck after a limit error.
 - Never buy credits or redeem a reset without explicit user authorization. Never use Ultrafast or another paid speed tier.
 
 ## Models by role
@@ -28,14 +28,14 @@ Any task and role can run on either provider, including coordination, implementa
 | Design-heavy implementation: new subsystems; security boundaries such as signing, trust, stores and locks; resolver logic; contract changes | Opus (`opus`), high | GPT-6.1 Sol (`gpt-6.1-sol`), high |
 | Clear-brief implementation: design settled, done is concrete | Sonnet (`sonnet`), high | GPT-6.1 Sol (`gpt-6.1-sol`), high |
 | Light work: mechanical edits, renames, doc link fixes, base merges, CI re-runs, gathering logs or PR state | Haiku (`haiku`), low where supported | GPT-6 Luna (`gpt-6-luna`), low |
-| First diff review of every implementation PR | Opus (`opus`), high | GPT-6.1 Sol (`gpt-6.1-sol`), high |
-| Every review round on PRs touching security, locks, resolvers or contracts | Opus (`opus`), high | GPT-6.1 Sol (`gpt-6.1-sol`), high |
+| First diff review of an implementation PR outside security, signing, trust, locks, resolvers and contracts | Sonnet (`sonnet`), high | GPT-6.1 Sol (`gpt-6.1-sol`), high |
+| Every review round on PRs touching security, signing, trust, locks, resolvers or contracts | Opus (`opus`), high | GPT-6.1 Sol (`gpt-6.1-sol`), high |
 | Later review rounds on small fixes outside security, locks, resolvers and contracts | Sonnet (`sonnet`), medium | GPT-6.1 Sol (`gpt-6.1-sol`), medium |
 | Investigations: CI root-causing, reproductions, perf measurements | Sonnet (`sonnet`), high; Opus (`opus`), high if stalled | GPT-6.1 Sol (`gpt-6.1-sol`), high |
 | Verification runs: executing a given test plan or real-flow proof on a named host (such as Windows tests on the desktop) and reporting exact results | Sonnet (`sonnet`), medium; investigation tier if a failure needs root-causing | GPT-6.1 Sol (`gpt-6.1-sol`), medium |
 | Design or security judgment referred by the coordinator | Opus (`opus`), high | GPT-6.1 Sol (`gpt-6.1-sol`), high |
 
-- Either provider can supply the first diff review. Use Opus or GPT-6.1 Sol at high effort in a separate reviewer pass; cross-provider review is optional. An AI review is not PR approval, and reviews do not count toward the substantial-work allocation.
+- Claude supplies the review in a separate pass, which keeps review cross-provider while Codex implements. Use Sonnet at high effort for routine PRs and Opus at high effort for security, signing, trust, locks, resolvers and contracts. An AI review is not PR approval, and reviews do not count toward the substantial-work allocation.
 - The coordinator hands design or security judgment calls to an Opus or GPT-6.1 Sol reviewer on the selected platform instead of deciding them alone.
 - These current assignments supersede older routing instructions in project memories, handoffs, and task briefs while preserving direct user choices.
 - Light-work models (Haiku, Luna) never touch security or contracts.
@@ -43,7 +43,7 @@ Any task and role can run on either provider, including coordination, implementa
 - Never choose xhigh, max, or ultra unless explicitly requested.
 - **Sessions whose model is set at start.** Project threads, Remote Control sessions and other new sessions start on the surface's default model and effort, and some surfaces allow switching only at the user's own request. There, the coordinator cannot pick a model per session. For a new session, recommend the coordination tier when the user requests setup; do not change defaults automatically. Have a session whose role needs another tier run that work through a supported per-call control (for example a Claude agent call with the role's `model` and effort) or ask the user to switch it. Do not report a session as running its role's model when it is on the default.
 - Use the model selectors shown in backticks, not display labels such as `Sol`. The Claude Code selectors are documented aliases that resolve by provider; confirm the resolved model rather than assuming a particular version. For API or other surfaces that require a full Claude model ID, resolve and record that supported ID before dispatch. The Codex selectors are explicit IDs from the current local catalog. Confirm model availability and supported effort at dispatch; if the requested role or effort cannot be supplied, report the limitation rather than silently downgrading it.
-- Codex carries its share of design-heavy work, not only routine tasks.
+- Codex carries all implementation, including design-heavy work; route the design or security judgment to an Opus review rather than moving the implementation to Claude.
 
 These are preferences, not an availability or pricing guarantee: use the live catalog, preserve the configured model when details are unavailable, and do not claim measured monetary savings from qualitative tiers. If a configured choice is a poor fit, say so briefly. End the response with a concise line naming the models, effort, and whether subagents were used.
 
