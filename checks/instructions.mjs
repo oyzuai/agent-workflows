@@ -48,7 +48,7 @@ export function oyzuChanges(root, base = 'origin/dev') {
   const untracked = execFileSync('git',['-C',root,'ls-files','--others','--exclude-standard','-z'],{encoding:'utf8'}).split('\0').filter(Boolean);
   const added = execFileSync('git',['-C',root,'diff','--name-only','--diff-filter=A',base],{encoding:'utf8'}).trim().split('\n');
   for (const name of new Set([...added, ...untracked])) {
-    if (!name.startsWith('tooling/') || !existsSync(resolve(root,name))) continue;
+    if (!name.startsWith('tooling/') || /^tooling\/check-[^/]+$/.test(name) || !existsSync(resolve(root,name))) continue;
     const script = /\.(?:py|pyw|sh|bash|zsh|js|mjs|cjs|ts|ps1|psm1|bat|cmd|rb|pl)$/i.test(name)
       || /^#!/.test(readFileSync(resolve(root,name),'utf8'));
     if (script) errors.push(`${name}: new scripts are not allowed under tooling/`);

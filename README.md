@@ -30,7 +30,8 @@ and flags copied paragraphs of at least 40 words across the supplied checkouts
 after normalizing leading list markers.
 `node --test checks/instructions.test.mjs` exercises budget boundaries and deduplication.
 For Oyzu added-line owned-schema labels and new scripts under `tooling/`
-(including untracked and extensionless scripts), set `OYZU_INSTRUCTION_BASE=origin/dev`.
+(including untracked and extensionless scripts, with `tooling/check-*` repository
+checks allowed), set `OYZU_INSTRUCTION_BASE=origin/dev`.
 Status-file shape remains owned by Oyzu's existing `tooling/check-docs.mjs`.
 These are local checks; fleet has no repository workflow to extend and this
 command does not install Node or activate CI.
