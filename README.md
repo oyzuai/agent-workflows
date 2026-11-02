@@ -19,3 +19,20 @@ This public repository is the canonical source for reusable Codex and Claude acc
 Skills and instructions are inert files until a supported local client reads or installs them. This repository does not activate schedules, account-synced skills, plugins, GitHub labels, or automation.
 
 The repository is under review and has no license selection. Do not infer permission to redistribute third-party material; migrated content is authored workflow text only.
+
+## Instruction checks
+
+With the repository's managed Node runtime, run
+`node checks/instructions.mjs <repo> <context> <agent-workflows>`.
+It checks root/directory instructions, skill bodies (excluding frontmatter), context bodies,
+briefs and the 400-word constitution budget,
+and flags copied paragraphs of at least 40 words across the supplied checkouts
+after normalizing leading list markers.
+`node --test checks/instructions.test.mjs` exercises budget boundaries and deduplication.
+For Oyzu added-line owned-schema labels and new scripts under `tooling/`
+(including untracked and extensionless scripts), set `OYZU_INSTRUCTION_BASE=origin/dev`.
+Status-file shape remains owned by Oyzu's existing `tooling/check-docs.mjs`.
+These are local checks; fleet has no repository workflow to extend and this
+command does not install Node or activate CI.
+
+Owned-schema label checks distinguish schema/contract contexts from upstream action tags, tool pins and semantic versions.
