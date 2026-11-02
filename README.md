@@ -8,6 +8,11 @@ This public repository is the canonical source for reusable Codex and Claude acc
 - [`policy/working-agreements.md`](policy/working-agreements.md): shared scope, safety, ownership, [durable design material](policy/working-agreements.md#durable-design-material), [being practical](policy/working-agreements.md#be-practical), and [acceptance evidence and resource ownership](policy/working-agreements.md#acceptance-evidence-and-resource-ownership) rules.
 - [`accounts/`](accounts/): thin provider-specific account instruction files and the maintainer profile.
 - [`classify-issues`](skills/classify-issues/SKILL.md): required Oyzu issue classification and the canonical label catalog.
+- [`write-brief`](skills/write-brief/SKILL.md): bounded item briefs with relevant context ids.
+- [`implement-item`](skills/implement-item/SKILL.md): implementation, draft delivery and memory candidate emission.
+- [`review-change`](skills/review-change/SKILL.md): independent review with a rejection rubric and learning report.
+- [`fix-failure`](skills/fix-failure/SKILL.md): bounded repair after an integration failure or revert.
+- [`improve-harness`](skills/improve-harness/SKILL.md): deterministic pattern detection and smallest-fix proposals.
 - [`skills/`](skills/): portable workflows, each packaged as a `SKILL.md` with any focused references beside it.
 - [`adoption/`](adoption/): installation guidance and reusable project instruction templates.
 
