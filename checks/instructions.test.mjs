@@ -70,7 +70,8 @@ test('untracked scripts, arbitrary new script names and extensionless scripts ar
    writeFileSync(join(root,'tooling',name),name==='runner'?'#!/usr/bin/env bash\n':'# script');
   }
   writeFileSync(join(root,'tooling','guide.md'),'documentation');
-  assert.equal(oyzuChanges(root,'HEAD').filter(x=>x.includes('new scripts')).length,5);
+  assert.ok(!oyzuChanges(root,'HEAD').some(x=>x.startsWith('tooling/check-foo.sh:')));
+  assert.equal(oyzuChanges(root,'HEAD').filter(x=>x.includes('new scripts')).length,4);
   writeFileSync(join(root,'CONSTITUTION.md'),'word '.repeat(401));
   assert.ok(inspect(collect(root)).some(x=>x.includes('exceeds 400')));
  }finally{rmSync(root,{recursive:true,force:true});}
