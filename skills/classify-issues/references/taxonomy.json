@@ -107,7 +107,13 @@
         "initiative:caching": "Cache hit-rate, key stability and reuse regression work.",
         "initiative:dev-cli": "Dev CLI channel: per-push internal builds consumed by dev and PR CI.",
         "initiative:builders-v1": "Builders V1: builder completeness for the first release.",
-        "initiative:factory": "Agentic software factory: agent rows, console, sentinel and memory reporting."
+        "initiative:factory": "Agentic software factory: agent rows, console, sentinel and memory reporting.",
+        "initiative:plugin-releases": "Plugin and Oyzu releases: publishing, signing, catalog and tool-index.",
+        "initiative:ci-speed": "CI and test speed: runners, flaky tests, affected-test selection and verification cost.",
+        "initiative:cli-ux": "CLI user experience: commands, output, activation and error messages.",
+        "initiative:platform": "Platform product: portal, identity, access, projects and the fleet service.",
+        "initiative:docs": "Documentation, proposals, examples and the docs site.",
+        "initiative:security": "Security hardening: trust, signing, secrets, isolation and compliance."
       }
     },
     "agent": {
