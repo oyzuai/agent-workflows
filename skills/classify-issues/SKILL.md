@@ -76,8 +76,8 @@ verification (`area:ci`). A Go builder bug does not automatically need
    or a body file; do not interpolate issue text into executable shell code.
 5. For an existing issue, add selected labels through the additive labels API.
    If reclassification is authorized, remove only specifically superseded
-   taxonomy labels, including an obsolete type. Preserve `agent:*`, ownership,
-   automation and unrelated labels. Do not replace the entire label set from a
+   taxonomy labels, including an obsolete type. Preserve ownership, automation and unrelated
+   labels, and `agent:*` except when updating its status per the PR rules below. Do not replace the entire label set from a
    stale read. Preserve content, state, assignments and milestones.
 6. Read back the issue. Confirm exactly one type, one or two areas, catalog-valid
    optional labels, and preserved workflow labels. Report its URL and any
