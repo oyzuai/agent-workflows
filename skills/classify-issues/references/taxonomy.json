@@ -100,6 +100,25 @@
         "priority:p2": "Normal planned work.",
         "priority:p3": "Lower-priority backlog."
       }
+    },
+    "initiative": {
+      "color": "FBCA04",
+      "labels": {
+        "initiative:caching": "Cache hit-rate, key stability and reuse regression work.",
+        "initiative:dev-cli": "Dev CLI channel: per-push internal builds consumed by dev and PR CI.",
+        "initiative:builders-v1": "Builders V1: builder completeness for the first release.",
+        "initiative:factory": "Agentic software factory: agent rows, console, sentinel and memory reporting."
+      }
+    },
+    "agent": {
+      "color": "5319E7",
+      "labels": {
+        "agent:active": "Owned investigation or implementation underway",
+        "agent:blocked": "Owned; awaiting a named prerequisite or external change",
+        "agent:escalated": "Owned; bounded attempt needs stronger investigation or a decision",
+        "agent:needs-design": "Owned; awaiting a recorded maintainer design decision",
+        "agent:review": "Owned scoped PR awaiting maintainer review"
+      }
     }
   }
 }

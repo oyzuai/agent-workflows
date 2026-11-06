@@ -1,6 +1,6 @@
 ---
 name: classify-issues
-description: Apply the shared Oyzu issue taxonomy when creating or classifying issues in any oyzuai repository. Covers work type, subsystem, ecosystem, surface, host, concern and triaged priority while preserving workflow labels.
+description: Apply the shared Oyzu issue taxonomy when creating or classifying issues in any oyzuai repository. Covers work type, subsystem, initiative, ecosystem, surface, host, concern and triaged priority, plus PR labels and milestones, while preserving workflow labels.
 ---
 
 # Classify issues
@@ -37,6 +37,11 @@ body and relevant existing issues; keywords in a title alone are insufficient.
   alone does not establish a Linux-specific defect.
 - Add supported `flag:*` concerns. Do not infer a regression from a compatibility
   expansion or a security defect from an unverified test failure.
+- Add at most one `initiative:*` when the item belongs to a named, cross-cutting
+  push (for example caching, the dev CLI channel, Builders V1, the factory).
+  Initiatives answer "which effort is this part of"; areas answer "which
+  subsystem". An item with no matching initiative gets none; never invent one
+  in a single issue. New initiatives are added to the catalog by PR.
 - Set at most one `priority:*` only when explicit maintainer triage or an existing
   recorded priority supports it. Unknown priority stays unset.
 
@@ -78,7 +83,16 @@ verification (`area:ci`). A Go builder bug does not automatically need
    optional labels, and preserved workflow labels. Report its URL and any
    unresolved classification or permission limit.
 
-Ownership belongs in assignees, delivery targets in milestones, and progress in
+## Pull requests and milestones
+
+A PR carries the `type:*`, `area:*` and `initiative:*` labels of the issue it
+closes. A PR with no issue is classified on its own diff by the same rules.
+Label the PR when opening it; it must not wait for review. Use `agent:*` only
+for the status of agent-owned work (`agent:active` while underway,
+`agent:review` once ready, `agent:blocked` or `agent:escalated` when stuck);
+remove the superseded status label when the state changes. Milestones are for
+release trains only (for example `0.4.1`, `V1`); do not use them for
+initiatives or areas. Ownership belongs in assignees, delivery targets in milestones, and progress in
 the project workflow or existing `agent:*` labels. Taxonomy labels never claim
 work or authorize implementation. Do not add a new schedule or bulk relabel
 other issues merely because this skill was loaded.
