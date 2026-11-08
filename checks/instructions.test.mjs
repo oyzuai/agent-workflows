@@ -60,7 +60,34 @@ for(const [name,line,expected] of [
  ['schema.json','"node": "v24"',false],
  ['package.json','"dependency": "v2.1.0"',false],
  ['schema.md','upstream release v3.12.0',false],
+ ['src/build/action_cache/remote/oci.rs','/// Probe the registry (`GET /v2/`) before pushing a manifest.',false],
+ ['src/build/action_cache/remote/oci.rs','format!("/v2/{repository}/manifests/{tag}")',false],
+ ['src/build/action_cache/remote/oci.rs','format!("https://{registry}/v2/{repository}/blobs/{digest}")',false],
+ ['src/build/action_cache/remote/oci.rs','"GET /v2/"; "POST /v2/team/cache/blobs/uploads/"',false],
+ ['tests/support/oci_registry.rs','.strip_prefix(&format!("/v2/{repository}/"))',false],
+ ['schema.json','"version": "v2", "registry": "/v2/"',true],
+ ['schema.json','"version": "v1beta1", "registry": "/v2/"',true],
+ ['schema.json','"$ref": "/contracts/v2/schema.json"',true],
+ ['schema.json','"$ref": "/v2/schema.json"',true],
+ ['schema.json','"$ref": "/v2alpha1/schema.json"',true],
 ]) test(`successor-label scope: ${line}`,()=>assert.equal(successorLabel(name,line),expected));
+
+test('large diffs allow OCI endpoints and still reject a later owned successor label',()=>{
+ const root=mkdtempSync(join(tmpdir(),'instruction-large-diff-'));
+ const git=(...args)=>execFileSync('git',['-C',root,...args],{stdio:'pipe'});
+ try {
+  git('init','-b','dev');
+  writeFileSync(join(root,'schema.txt'),'baseline\n');
+  git('add','.');git('-c','user.name=Fixture','-c','user.email=fixture@example.invalid','commit','-m','baseline');
+  const endpoints='GET /v2/team/cache/manifests/latest\n'.repeat(40000);
+  writeFileSync(join(root,'schema.txt'),endpoints);
+  assert.deepEqual(oyzuChanges(root,'HEAD'),[]);
+  writeFileSync(join(root,'schema.txt'),endpoints+'schema version: v2\n');
+  const errors=oyzuChanges(root,'HEAD');
+  assert.equal(errors.length,1);
+  assert.match(errors[0],/successor schema label.*schema version: v2/);
+ } finally {rmSync(root,{recursive:true,force:true});}
+});
 test('untracked scripts, arbitrary new script names and extensionless scripts are checked',()=>{
  const root=mkdtempSync(join(tmpdir(),'instruction-untracked-'));
  const git=(...args)=>execFileSync('git',['-C',root,...args],{stdio:'pipe'});
