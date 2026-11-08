@@ -37,7 +37,8 @@ These are local checks; fleet has no repository workflow to extend and this
 command does not install Node or activate CI.
 
 Owned-schema label checks distinguish schema/contract contexts from upstream action tags,
-tool pins, semantic versions and OCI Distribution root `/v2/` endpoints. Other owned
-successor labels on the same line remain checked. Diff output is captured in a
+tool pins, semantic versions and OCI Distribution `/v2/` probes and repository
+routes. Owned schema paths and other successor labels on the same line remain
+checked. Diff output is captured in a
 temporary file, removed after checking, so large diffs do not exceed Node's
 subprocess stdout buffer.

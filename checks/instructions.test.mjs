@@ -64,9 +64,11 @@ for(const [name,line,expected] of [
  ['src/build/action_cache/remote/oci.rs','format!("/v2/{repository}/manifests/{tag}")',false],
  ['src/build/action_cache/remote/oci.rs','format!("https://{registry}/v2/{repository}/blobs/{digest}")',false],
  ['src/build/action_cache/remote/oci.rs','"GET /v2/"; "POST /v2/team/cache/blobs/uploads/"',false],
+ ['tests/support/oci_registry.rs','.strip_prefix(&format!("/v2/{repository}/"))',false],
  ['schema.json','"version": "v2", "registry": "/v2/"',true],
  ['schema.json','"version": "v1beta1", "registry": "/v2/"',true],
  ['schema.json','"$ref": "/contracts/v2/schema.json"',true],
+ ['schema.json','"$ref": "/v2/schema.json"',true],
  ['schema.json','"$ref": "/v2alpha1/schema.json"',true],
 ]) test(`successor-label scope: ${line}`,()=>assert.equal(successorLabel(name,line),expected));
 

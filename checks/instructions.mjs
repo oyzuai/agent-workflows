@@ -40,8 +40,8 @@ export function successorLabel(name, line) {
   const clean = line.replace(/\b[\w.-]+\/[\w./-]+@v[\w.-]+/g,'')
     .replace(/\bv\d+\.\d+(?:\.\d+)?(?:-[\w.-]+)?\b/g,'')
     .replace(/(?:["']?(?:node|go|rust|python|java|dotnet|helm|npm|kubectl)["']?\s*[:=]\s*)["']?v\d+[\w.-]*/gi,'')
-    // OCI Distribution endpoints use a root /v2/ path, not an owned schema label.
-    .replace(/(^|[\s"'`(])(?:https?:\/\/[^\s/"'`]+)?\/v2\//g,'$1');
+    // Exclude OCI probes and repository routes, preserving owned /v2/schema paths.
+    .replace(/(^|[\s"'`(])(?:https?:\/\/[^\s/"'`]+)?\/v2\/(?=$|[\s"'`),.;]|[^\s"'`]*\/(?:manifests|blobs|tags|referrers)\/|\{(?:repository|REPOSITORY)\}\/)/g,'$1');
   const label = /\bv(?:[2-9]\d*(?:(?:alpha|beta)\d*)?|1beta\d*|1alpha(?:[2-9]\d*)?)\b/;
   return label.test(clean) && /schema|contract|protocol|format|manifest|receipt|report|journal|lock|domain|oyzu[._/-]/i.test(name+' '+clean);
 }
