@@ -1,5 +1,6 @@
-import { readFileSync, existsSync } from 'node:fs';
-import { resolve, basename, relative } from 'node:path';
+import { readFileSync, existsSync, mkdtempSync, openSync, closeSync, rmSync } from 'node:fs';
+import { resolve, basename, join } from 'node:path';
+import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
@@ -38,7 +39,9 @@ export function collect(root) {
 export function successorLabel(name, line) {
   const clean = line.replace(/\b[\w.-]+\/[\w./-]+@v[\w.-]+/g,'')
     .replace(/\bv\d+\.\d+(?:\.\d+)?(?:-[\w.-]+)?\b/g,'')
-    .replace(/(?:["']?(?:node|go|rust|python|java|dotnet|helm|npm|kubectl)["']?\s*[:=]\s*)["']?v\d+[\w.-]*/gi,'');
+    .replace(/(?:["']?(?:node|go|rust|python|java|dotnet|helm|npm|kubectl)["']?\s*[:=]\s*)["']?v\d+[\w.-]*/gi,'')
+    // OCI Distribution endpoints use a root /v2/ path, not an owned schema label.
+    .replace(/(^|[\s"'`(])(?:https?:\/\/[^\s/"'`]+)?\/v2\//g,'$1');
   const label = /\bv(?:[2-9]\d*(?:(?:alpha|beta)\d*)?|1beta\d*|1alpha(?:[2-9]\d*)?)\b/;
   return label.test(clean) && /schema|contract|protocol|format|manifest|receipt|report|journal|lock|domain|oyzu[._/-]/i.test(name+' '+clean);
 }
@@ -53,7 +56,18 @@ export function oyzuChanges(root, base = 'origin/dev') {
       || /^#!/.test(readFileSync(resolve(root,name),'utf8'));
     if (script) errors.push(`${name}: new scripts are not allowed under tooling/`);
   }
-  const diff = execFileSync('git',['-C',root,'diff','--unified=0',base],{encoding:'utf8'});
+  // Large branch diffs exceed execFileSync's default stdout buffer. Capture the
+  // complete diff in a task-owned file and always remove it, including on error.
+  const scratch = mkdtempSync(join(tmpdir(),'instruction-diff-'));
+  let diff;
+  try {
+    const output = join(scratch,'diff');
+    const fd = openSync(output,'w');
+    try {
+      execFileSync('git',['-C',root,'diff','--unified=0',base],{stdio:['ignore',fd,'pipe']});
+    } finally { closeSync(fd); }
+    diff = readFileSync(output,'utf8');
+  } finally { rmSync(scratch,{recursive:true,force:true}); }
   let name = '';
   for (const line of diff.split('\n')) {
     if (line.startsWith('+++ b/')) { name=line.slice(6); continue; }
