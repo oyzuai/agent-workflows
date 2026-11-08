@@ -40,6 +40,68 @@ descriptions in the bundled catalog; do not maintain per-repository copies.
 These files take effect when adopted on the branch a session reads; PR creation
 alone does not activate them on the default branch.
 
+## Cloud session context
+
+Repository `.claude/settings.json` hooks cannot cover a session started outside
+a checkout. For that case, provision
+[`claude-cloud-load-context.sh`](claude-cloud-load-context.sh) as a **user-level**
+SessionStart hook in the Claude cloud environment. This PR supplies the script
+and instructions only; it does not install or activate user settings.
+
+The environment needs Bash, Git, a writable user cache, and authenticated read
+access to private `oyzuai/context`. Before starting a session, copy the script
+from the reviewed agent-workflows checkout into the cloud session user's home
+(run these in that checkout during environment provisioning):
+
+```bash
+install -d -m 700 "$HOME/.claude/hooks"
+install -m 700 adoption/claude-cloud-load-context.sh "$HOME/.claude/hooks/load-oyzu-context.sh"
+```
+
+In the cloud environment's **user-level Claude settings**, merge this entry into
+the user's `~/.claude/settings.json`. Append to any existing `hooks.SessionStart`
+array and preserve all other hooks and settings. Do not put this entry only in a
+repository's settings. If the cloud environment recreates the home directory,
+include both the script copy and settings merge in its provisioning/setup so
+they exist before SessionStart runs.
+
+```json
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/load-oyzu-context.sh\"",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+The standalone script ignores the working directory and `CLAUDE_PROJECT_DIR`.
+It clones or fast-forwards `main` in `$XDG_CACHE_HOME/oyzu/context`, falling back
+to `$HOME/.cache/oyzu/context`, and prints the committed constitution, INDEX and
+`context commit <sha>`. Cache paths must be absolute. On failure it prints
+`ERROR: ... context load FAILED` to stderr **and** session stdout, with no success
+SHA. It exits zero with that failure marker so an offline session can continue;
+restore private Git access or repair the cache branch/origin and retry before
+relying on shared policy. An outer timeout is reported by the host. It neither
+installs skills nor changes account instructions.
+
+For the offline proof, run
+`bash .claude/test-load-context.sh adoption/claude-cloud-load-context.sh cloud`.
+It runs the actual script from a non-repository directory with
+`CLAUDE_PROJECT_DIR` unset, local bare remotes and network protocols disabled.
+After provisioning, separately start a fresh cloud session in a non-repository
+directory such as the user's home and confirm the documents and SHA appear in
+SessionStart output. That fresh-session settings check has not been performed
+by committing these files.
+
 ## Updating and attribution
 
 Pull updates to this repository, review the diff, and then update installed copies or links. Do not overwrite local changes silently. The repository has not selected a license; do not infer permission to redistribute third-party content.
