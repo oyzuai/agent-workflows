@@ -1,3 +1,11 @@
+> Shared workflows and skills now belong in [oyzuai/context](https://github.com/oyzuai/context).
+> This repository is retained for history and existing installations. New work
+> belongs in Context; the instructions below describe the historical source.
+> See [Context installation](https://github.com/oyzuai/context/blob/main/adoption/README.md)
+> for Claude and Codex plugins. Keep old installations until their replacement
+> is reviewed, merged and verified. No repository archival or history rewrite is
+> performed by this redirect.
+
 # Shared agent workflows
 
 This public repository is the canonical source for reusable Codex and Claude account guidance and portable agent skills. Provider adapters stay separate where the clients discover files or expose tools differently; shared policies have one owner in `policy/`.

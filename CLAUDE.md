@@ -1,3 +1,11 @@
+> Shared workflows and skills now belong in [oyzuai/context](https://github.com/oyzuai/context).
+> This repository is retained for history and existing installations. New work
+> belongs in Context; the instructions below describe the historical source.
+> See [Context installation](https://github.com/oyzuai/context/blob/main/adoption/README.md)
+> for Claude and Codex plugins. Keep old installations until their replacement
+> is reviewed, merged and verified. No repository archival or history rewrite is
+> performed by this redirect.
+
 # Repository contributor instructions for Claude Code
 
 ## Issue taxonomy
